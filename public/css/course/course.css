@@ -1,0 +1,41 @@
+.courses {
+  max-width: 1200px;
+  margin: 0 auto;
+  /* Style the tab */
+  /* Style the buttons that are used to open the tab content */
+  /* Change background color of buttons on hover */
+  /* Create an active/current tablink class */
+  /* Style the tab content */
+}
+.courses .tab {
+  overflow: hidden;
+  background-color: #fafafa;
+  padding: 10px;
+  border-radius: 40px;
+}
+.courses .tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 16px;
+  margin-right: 16px;
+  border-radius: 40px;
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: capitalize;
+}
+.courses .tab button:hover {
+  background-color: #fff;
+}
+.courses .tab button.active {
+  background-color: rgba(255, 27, 107, 0.062745098);
+  color: #ff1b6b;
+}
+.courses .tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}/*# sourceMappingURL=course.css.map */

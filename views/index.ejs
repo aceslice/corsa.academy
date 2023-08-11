@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head') %>
+  <body>
+    <%- include('./partials/banner') %> <%- include('./partials/topnav') %>
+    <main class="hero">
+      <div class="info">
+        <img src="./assets/loader.svg" alt="loader" loading="lazy" />
+        Growing tech community
+      </div>
+      <h1>
+        Learn from
+        <span
+          >experts
+          <img src="./assets/underline.svg" alt="" /> </span
+        >, anytime, anywhere
+      </h1>
+      <p>
+        Immerse Yourself in Engaging Classes and Inspiring Events: Connect with
+        Leading Experts and Like-Minded Peers. Unleash the Joy of Learning Both
+        Online and Offline!
+      </p>
+      <div class="buttons">
+        <button class="tertiary">Learn more</button>
+        <button class="primary">Join the waitlist</button>
+      </div>
+    </main>
+    <%- include('./course/allcourses') %>
+    <script src="./script/script.js"></script>
+  </body>
+</html>
