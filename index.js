@@ -1,5 +1,6 @@
 const {categories, courses} = require("./controllers/courseController")
 const express = require("express");
+const cors = require("cors")
 const app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
