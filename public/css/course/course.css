@@ -30,8 +30,8 @@
   background-color: #fff;
 }
 .courses .tab button.active {
-  background-color: rgba(255, 27, 107, 0.062745098);
-  color: #ff1b6b;
+  background-color: rgba(88, 47, 255, 0.062745098);
+  color: #582fff;
 }
 .courses .tabcontent {
   display: none;

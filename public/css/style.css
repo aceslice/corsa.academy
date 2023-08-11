@@ -16,7 +16,7 @@ a {
 }
 
 .banner {
-  background: #582fff;
+  background: #ff1b6b;
   text-align: center;
   padding: 8px;
   font-size: 15px;
@@ -42,6 +42,15 @@ a {
   padding: 20px;
   border-bottom: 1.5px dashed #fafafa;
 }
+.topnav .logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+.topnav .logo-container .logo {
+  height: 40px;
+}
 .topnav .links {
   color: slategray;
   font-size: 15px;
@@ -52,7 +61,7 @@ a {
   margin: 16px;
 }
 .topnav .links a:hover {
-  color: #ff1b6b;
+  color: #582fff;
 }
 .topnav .buttons button {
   padding: 14px 40px;
@@ -60,9 +69,9 @@ a {
   font-weight: bold;
   font-size: 12px;
   cursor: pointer;
-  border: 2px solid #ff1b6b;
-  background-color: rgba(255, 27, 107, 0.062745098);
-  color: #ff1b6b;
+  border: 2px solid #582fff;
+  background-color: rgba(88, 47, 255, 0.062745098);
+  color: #582fff;
 }
 .topnav .buttons button:hover {
   transform: scale(1.02);
@@ -82,7 +91,7 @@ a {
   justify-content: center;
   flex-direction: row;
   padding: 10px 40px;
-  color: #ff1b6b;
+  color: #582fff;
   background-color: rgba(250, 250, 250, 0.062745098);
   -webkit-backdrop-filter: blur(35px);
           backdrop-filter: blur(35px);
@@ -99,7 +108,7 @@ a {
   text-align: center;
 }
 .hero h1 span {
-  color: #ff1b6b;
+  color: #582fff;
   position: relative;
   display: inline-block;
 }
@@ -129,8 +138,8 @@ a {
   font-weight: bold;
   font-size: 12px;
   cursor: pointer;
-  border: 2px solid #ff1b6b;
-  background-color: #ff1b6b;
+  border: 2px solid #582fff;
+  background-color: #582fff;
   color: #fff;
 }
 .hero .buttons .primary:hover {
@@ -142,9 +151,9 @@ a {
   font-weight: bold;
   font-size: 12px;
   cursor: pointer;
-  border: 2px solid #ff1b6b;
-  background-color: rgba(255, 27, 107, 0.062745098);
-  color: #ff1b6b;
+  border: 2px solid #582fff;
+  background-color: rgba(88, 47, 255, 0.062745098);
+  color: #582fff;
 }
 .hero .buttons .tertiary:hover {
   transform: scale(1.02);
