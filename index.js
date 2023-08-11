@@ -3,6 +3,12 @@ const express = require("express");
 const cors = require("cors")
 const app = express();
 app.set("view engine", "ejs");
+app.use(cors(
+  {
+    methods: ["POST", "GET"],
+    credentials: true
+  }
+))
 app.use(express.static("public"));
 app.listen(3000, () => {
   console.log("Server started successfully on port 3000");
