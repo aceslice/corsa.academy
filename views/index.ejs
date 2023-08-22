@@ -4,28 +4,73 @@
   <body>
     <%- include('./partials/banner') %> <%- include('./partials/topnav') %>
     <main class="hero">
-      <div class="info">
-        <img src="./assets/loader.svg" alt="loader" loading="lazy" />
-        Growing tech community
+      <div class="texts">
+        <div class="info">
+          Growing <img src="./assets/explore.svg" alt="loader" loading="lazy" />
+          Community
+        </div>
+        <h1>
+          <div>
+            Connecting
+            <span>
+              <div class="chips">
+                <div class="chip"></div>
+                <div class="chip"></div>
+                <div class="chip"></div>
+                <div class="chip"></div>
+              </div>
+              you
+            </span>
+          </div>
+          to your perfect tutor
+        </h1>
+        <p>
+          We believe learning becomes fun and effective with like-minded
+          individuals and familiar experts. Join the Corsa Academy for a
+          personalized experience that's all about you!
+        </p>
+        <div class="buttons">
+          <button class="secondary">Learn more</button>
+          <button class="primary">Join the waitlist</button>
+        </div>
       </div>
-      <h1>
-        Learn from
-        <span
-          >experts
-          <img src="./assets/underline.svg" alt="" /> </span
-        >, anytime, anywhere
-      </h1>
-      <p>
-        Immerse Yourself in Engaging Classes and Inspiring Events: Connect with
-        Leading Experts and Like-Minded Peers. Unleash the Joy of Learning Both
-        Online and Offline!
-      </p>
-      <div class="buttons">
-        <button class="tertiary">Learn more</button>
-        <button class="primary">Join the waitlist</button>
+      <div class="img-container">
+        <div class="tutor-card">
+          <div class="header">
+            <div class="overlay">
+              <img src="./assets/heart.svg" alt="" class="icon" />
+            </div>
+          </div>
+          <div class="details">
+            <img src="./assets/loader.svg" alt="" />
+            <p class="expertise">Expert in Music</p>
+            <p class="name">Jeniffer Lopez</p>
+            <button>Follow Jeniffer</button>
+          </div>
+        </div>
+
+        <div class="tutor-card">
+          <div
+            class="header"
+            style="
+              background-image: url('./assets/img/guy-happy-in-couch.8da7cbfccd005211e227.jpg');
+            "
+          >
+          <div class="overlay">
+            <img src="./assets/heart.svg" alt="" class="icon">
+          </div>
+          </div>
+          <div class="details">
+            <img src="./assets/search.svg" alt="" />
+            <p class="expertise">Expert in Javascript</p>
+            <p class="name">Gideon Appau</p>
+            <button>Follow Gideon</button>
+          </div>
+        </div>
       </div>
     </main>
     <%- include('./course/allcourses') %>
+    <a href="/courses"><button class="load">Load more courses</button></a>
     <script src="./script/script.js"></script>
   </body>
 </html>

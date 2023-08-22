@@ -1,6 +1,9 @@
 @use "./foundations/button";
+@use "./foundations/colors";
 @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap");
-@mixin flex($align, $justify:center, $direction: row) {
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+@mixin flex($align, $justify: center, $direction: row) {
   display: flex;
   align-items: $align;
   justify-content: $justify;
@@ -18,19 +21,27 @@ $secondary-color: #ff1b6b;
 }
 body {
   font-size: 17px;
+  line-height: 1.3;
+  background: rgb(22, 22, 22);
+  background-image: url(../assets/img/bg-blur-ke-cropped.66495e1ca0cf8625ba79.png);
+  // background-position: center;
+  // background-size: 100%;
+  background-repeat: repeat;
 }
 a {
   color: #fff;
+  text-decoration: none;
 }
 .banner {
-  background: $secondary-color;
+  background: rgb(40, 40, 40);
+  color: #888;
   text-align: center;
   padding: 8px;
   font-size: 15px;
   color: #fff;
   @include flex(center, center);
   position: relative;
-  span{
+  span {
     font-size: 24px;
     cursor: pointer;
     position: absolute;
@@ -39,20 +50,18 @@ a {
 }
 .topnav {
   @include flex(center, space-between);
-  padding: 20px;
-  border-bottom: 1.5px dashed #fafafa;
-  .logo-container{
-    @include flex(center,center);
-    .logo{
-      height: 40px;
-    }
+  padding: 15px;
+  border-bottom: 1px solid rgb(40, 40, 40);
+  background: transparent;
+  margin-bottom: 20px;
+  .logo {
+    height: 40px;
   }
   .links {
-    color: slategray;
     font-size: 15px;
     a {
       text-decoration: none;
-      color: slategray;
+      color: #bbb;
       margin: 16px;
       &:hover {
         color: $primary-color;
@@ -66,101 +75,181 @@ a {
   }
 }
 .hero {
-  padding: 80px;
-  @include flex(center, center, column);
+  padding: 40px 80px;
+  @include flex(center, space-evenly);
+  
   height: 100%;
-  .info {
-    @include flex(center, center);
-    padding: 10px 40px;
-    color: $primary-color;
-    background-color: #fafafa10;
-    backdrop-filter: blur(35px);
-    gap: 1em;
-    img {
-      height: 25px;
-    }
-  }
-  h1 {
-    margin-top: 24px;
-    margin-bottom: 24px;
-    line-height: 1.3em;
-    font-weight: 700;
-    text-align: center;
-    span {
-      //   background: linear-gradient(
-      //     256deg,
-      //     #ff1b6b,
-      //     $secondary-color,
-      //     #bf0fff,
-      //     $primary-color
-      //   );
-      //   background-clip: text;
-      //   -webkit-text-fill-color: transparent;
-      color: $primary-color;
-      position: relative;
-      display: inline-block;
+  .texts {
+    .info {
+      @include flex(center, center);
+      width: 220px;
+      border: 1px solid #7d808429;
+      border-radius: 40px;
+      gap: 6px;
+      padding: 4px 16px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.6px;
+      line-height: 24px;
+      color: #bbb;
+      text-transform: uppercase;
       img {
-        position: absolute;
-        left: 0;
-        bottom: -10px;
-        width: 100%;
+        height: 24px;
+      }
+    }
+    h1 {
+      margin-top: 24px;
+      margin-bottom: 24px;
+      line-height: 1.3em;
+      font-weight: 700;
+      text-align: center;
+      color: rgb(242, 242, 242);
+      font-size: 40px;
+      text-align: left;
+      span {
+        color: $primary-color;
+        display: inline-block;
+        .chips {
+          @include flex(center, center);
+          .chip {
+            height: 35px;
+            width: 35px;
+            background-color: #fff;
+            margin-right: -15px;
+            border-radius: 100%;
+            overflow: hidden;
+            background-position: center;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            border: 3px solid #fff;
+            img {
+              height: 100%;
+              width: 100%;
+              border-radius: 100%;
+            }
+          }
+          .chip:nth-child(1) {
+            background-image: url(https://images.unsplash.com/photo-1623945194105-cd36c4433390?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGNvbGxlZ2UlMjBzdHVkZW50fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60);
+          }
+          .chip:nth-child(2) {
+            background-image: url(https://images.unsplash.com/photo-1529470839332-78ad660a6a82?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fHN0dWRlbnR8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60);
+          }
+          .chip:nth-child(3) {
+            background-image: url(https://images.unsplash.com/photo-1525748822304-6807cb1348ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHN0dWRlbnQlMjBwb3J0cmFpdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60);
+          }
+          .chip:nth-child(4) {
+            background-image: url(https://images.unsplash.com/photo-1529068755536-a5ade0dcb4e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3R1ZGVudCUyMHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60);
+          }
+        }
+      }
+    }
+    p {
+      max-width: 500px;
+      margin-bottom: 32px;
+      color: #888;
+      line-height: 1.5em;
+      text-align: left;
+      font-weight: 400;
+      font-size: 16px;
+    }
+    .buttons {
+      @include flex(center, left);
+      gap: 16px;
+      .primary {
+        @include button.primary;
+      }
+      .secondary {
+        @include button.secondary;
       }
     }
   }
-  p {
-    max-width: 680px;
-    margin-bottom: 36px;
-    color: slategray;
-    line-height: 1.6em;
-    text-align: center;
+  .img-container {
+    flex: 2;
+    // background: #7d808429;
+    border-radius: 10px;
+    height: 500px;
+    @include flex(center, center, );
+    flex-wrap: wrap;
+    gap: 15px;
+    background-image: url(../assets/img/bg-blur-ke-cropped.66495e1ca0cf8625ba79.png);
+    background-position: center;
+    background-size: 100%;
   }
-  .buttons {
-    @include flex(center, center);
-    gap: 16px;
-    .primary {
-      @include button.primary;
+}
+.load{
+  @include button.tertiary;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 32px;
+}
+.tutor-card{
+  background-color: #7d808429;
+  width: 298px;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 32px;
+  margin-left: -48px;
+  transform: rotate(-4deg);
+  box-shadow: 10px 10px 100px rgb(22, 22, 22, 0.3);
+  border-bottom: 2px solid rgb(40, 40, 40);
+z-index: 2;
+  .header{
+    height: 300px;
+    max-height: 60%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    background-image: url(../assets/img/girl-yellow-sweater-afro-phone.359181bfef6d9ee07741.jpg);
+    .overlay{
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: linear-gradient(to top, transparent, rgb(0,0,0,0.09));
+      width: 100%;
+      height: 100%;
+    .icon{
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 100;
+      cursor: pointer;
+      &:hover{
+        transform: scale(1.02);
+      }
     }
-    .tertiary {
-      @include button.secondary;
+  }
+  }
+  .details{
+    padding: 16px;
+    word-break: break-word;
+    color: #888;
+    position: relative;
+    img{
+      background: #582fff;
+      padding: 10px;
+      border-radius: 100%;
+      border: 5px solid rgb(28, 28, 28);
+      position: absolute;
+      top: -30px;
+    }
+    .expertise{
+      margin-top: 16px;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .name{
+      font-size: 16px;
+          color: #eee;
+          margin-bottom: 10px;
+          word-break: break-word;
+    }
+    button{
+      @include button.primary;
+      width: 100%;
     }
   }
 }
-.chips {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  .chip {
-    height: 40px;
-    width: 40px;
-    background-color: #fff;
-    margin-right: -15px;
-    border-radius: 100%;
-    overflow: hidden;
-    background-position: center;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    border: 3px solid #fff;
-    img {
-      height: 100%;
-      width: 100%;
-      border-radius: 100%;
-    }
-  }
-  .chip:nth-child(1) {
-    background-image: url(https://images.unsplash.com/photo-1623945194105-cd36c4433390?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fGNvbGxlZ2UlMjBzdHVkZW50fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60);
-  }
-  .chip:nth-child(2) {
-    background-image: url(https://images.unsplash.com/photo-1529470839332-78ad660a6a82?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fHN0dWRlbnR8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60);
-  }
-  .chip:nth-child(3) {
-    background-image: url(https://images.unsplash.com/photo-1525748822304-6807cb1348ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHN0dWRlbnQlMjBwb3J0cmFpdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60);
-  }
-  .chip:nth-child(4) {
-    background-image: url(https://images.unsplash.com/photo-1529068755536-a5ade0dcb4e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8c3R1ZGVudCUyMHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60);
-  }
-  p {
-    margin: 0 auto;
-    margin-left: 1.5em;
-    color: #3f4550;
-  }
+.tutor-card::nth-child(1){
+  background-color: red;
 }

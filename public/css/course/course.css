@@ -5,16 +5,19 @@
   /* Style the buttons that are used to open the tab content */
   /* Change background color of buttons on hover */
   /* Create an active/current tablink class */
-  /* Style the tab content */
 }
 .courses .tab {
   overflow: hidden;
-  background-color: #fafafa;
+  background-color: rgb(28, 28, 28);
   padding: 10px;
   border-radius: 40px;
+  margin-bottom: 32px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
+  border: 1px solid rgb(40, 40, 40);
 }
 .courses .tab button {
-  background-color: inherit;
+  background-color: transparent;
+  color: #ddd;
   float: left;
   border: none;
   outline: none;
@@ -27,15 +30,127 @@
   text-transform: capitalize;
 }
 .courses .tab button:hover {
-  background-color: #fff;
+  background-color: #ffffff;
+  color: rgb(28, 28, 28);
 }
 .courses .tab button.active {
-  background-color: rgba(88, 47, 255, 0.062745098);
+  background-color: #fff;
+  color: rgb(28, 28, 28);
+}
+
+.courses {
+  margin-bottom: 40px;
+}
+.courses .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.courses .container .card {
+  background: rgb(28, 28, 28);
+  width: 298px;
+  writing-mode: horizontal-tb;
+  top: 0px;
+  border: 1px solid rgb(40, 40, 40);
+  border-radius: 12px;
+  position: relative;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.courses .container .card .header {
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  margin-bottom: 16px;
+}
+.courses .container .card .header .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.09));
+  width: 100%;
+  height: 100%;
+}
+.courses .container .card .header .overlay .more .bookmark {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 100;
+  cursor: pointer;
+}
+.courses .container .card .header .overlay .more .bookmark:hover {
+  transform: scale(1.02);
+}
+.courses .container .card .header .overlay .more .profile-picture {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 100;
+  background-position: center;
+  background-size: cover;
+  height: 35px;
+  width: 35px;
+  border-radius: 100%;
+  border: 1px solid #fff;
+  background-color: #fff;
+}
+.courses .container .card .header .overlay .more .profile-picture:hover {
+  transform: scale(1.02);
+}
+.courses .container .card .details {
+  padding: 12px 16px;
+  word-break: break-word;
+  color: #888;
+}
+.courses .container .card .details .tutor, .courses .container .card .details .tag {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}
+.courses .container .card .details .course-name {
+  font-size: 16px;
+  color: #eee;
+  margin-bottom: 10px;
+  word-break: break-word;
+}
+.courses .container .card .details .actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.courses .container .card .details .actions button {
+  padding: 14px 40px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  border: 2px solid rgb(40, 40, 40);
+  background-color: rgb(28, 28, 28);
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
+}
+.courses .container .card .details .actions button:hover {
   color: #582fff;
 }
-.courses .tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
+.courses .container .card .details .actions button::after {
+  content: " >";
+}
+.courses .container .card .details .actions button:hover {
+  transform: scale(1.02);
+}
+.courses .container .card .details .actions .price {
+  font-weight: 500;
+  color: #fff;
+}
+.courses .container .card:hover {
+  transform: scale(1.05);
 }/*# sourceMappingURL=course.css.map */

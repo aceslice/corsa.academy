@@ -1,4 +1,4 @@
-const {categories, courses} = require("./controllers/courseController")
+const {categories, courses, homeCourse} = require("./controllers/courseController")
 const express = require("express");
 const cors = require("cors")
 const app = express();
@@ -15,9 +15,10 @@ app.listen(3000, () => {
 });
 
 app.get("/", (req, res) => {
-  res.render("index", { title: "Quality tutoring, anytime, anywhere" ,categories, courses});
+  res.render("index", { title: "Quality tutoring, anytime, anywhere" ,categories, courses: homeCourse});
 });
 app.get("/courses", (req, res)=>{
+  courses.length != 3;
   res.render("course/coursepage", {title: "All courses", categories, courses});
 })
 app.get("/about", (req, res) => {

@@ -2,23 +2,45 @@
 <div class="courses">
   <div class="tab">
     <% if (categories.length > 0) { %> <% categories.forEach(category => { %>
-    <button
-      class="tablinks"
-      onclick="openCity(event, 'Paris')"
-    >
+    <button class="tablinks" onclick="openCity(event, 'Paris')">
       <%= category %>
     </button>
     <% }) %> <% } %>
   </div>
-  <% if (courses.length > 0) { %>
-    <% courses.map(course => { 
-      const {name, tutor, price, tag} = course;
-      %>
-       <h1><%= name %></h1>
-       <p><%= tutor.tutorName %></p>
-       <p><%= price %></p>
-       <p><%= tag %></p>
-    <% }) %>
-   <% } %>
+  <div class="container">
+    <% if (courses.length > 0) { %> <% courses.map(course => { const {name,
+    tutor, price, tag, thumbnail} = course; %>
+    <div class="card">
+      <div class="header" style="background-image: url('<%= thumbnail %>')">
+        <div class="overlay">
+          <div class="more">
+            <a href="#">
+              <span
+                class="profile-picture"
+                style="background-image: url('<%= tutor.tutorImage%>')"
+              >
+              </span>
+            </a>
+            <img src="./assets/bookmark.svg" alt="" class="bookmark" />
+          </div>
+        </div>
+      </div>
+      <div class="details">
+        <p class="tutor"><%= tutor.tutorName %></p>
+        <p class="course-name"><%= name %></p>
+        <a href="" class="tag"><%= tag %></a>
+        <div class="actions">
+          <% if (typeof(price) === "number") { %>
+          <p><span class="price">GHS <%= price %></span>.00</p>
+          <% } else {%>
+          <p><span class="price"><%= price %></span></p>
+          <% } %>
+
+          <button>Enroll</button>
+        </div>
+      </div>
+    </div>
+    <% }) %> <% } %>
+  </div>
 </div>
 <script src="./script/script.js"></script>
