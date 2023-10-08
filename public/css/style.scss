@@ -1,7 +1,6 @@
 @use "./foundations/button";
 @use "./foundations/colors";
 @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 @mixin flex($align, $justify: center, $direction: row) {
   display: flex;
@@ -15,8 +14,7 @@ $secondary-color: #ff1b6b;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Syne", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Syne", sans-serif;
   transition: 200ms ease;
 }
 body {
@@ -28,12 +26,25 @@ body {
   // background-size: 100%;
   background-repeat: repeat;
 }
+.primary-button {
+  @include button.primary;
+}
+.secondary-button {
+  @include button.secondary;
+}
+.tertiary-button {
+  @include button.tertiary;
+}
+.link-button {
+  @include button.link;
+}
 a {
   color: #fff;
   text-decoration: none;
+  text-align: center;
 }
 .banner {
-  background: rgb(40, 40, 40);
+  background-color: #7d808429;
   color: #888;
   text-align: center;
   padding: 8px;
@@ -50,12 +61,14 @@ a {
 }
 .topnav {
   @include flex(center, space-between);
-  padding: 15px;
+  padding: 15px 40px;
   border-bottom: 1px solid rgb(40, 40, 40);
   background: transparent;
   margin-bottom: 20px;
   .logo {
-    height: 40px;
+    height: 35px;
+    background-color: #eee;
+    border-radius: 100%;
   }
   .links {
     font-size: 15px;
@@ -68,16 +81,11 @@ a {
       }
     }
   }
-  .buttons {
-    button {
-      @include button.secondary;
-    }
-  }
 }
 .hero {
   padding: 40px 80px;
   @include flex(center, space-evenly);
-  
+
   height: 100%;
   .texts {
     .info {
@@ -155,12 +163,6 @@ a {
     .buttons {
       @include flex(center, left);
       gap: 16px;
-      .primary {
-        @include button.primary;
-      }
-      .secondary {
-        @include button.secondary;
-      }
     }
   }
   .img-container {
@@ -168,7 +170,7 @@ a {
     // background: #7d808429;
     border-radius: 10px;
     height: 500px;
-    @include flex(center, center, );
+    @include flex(center, center);
     flex-wrap: wrap;
     gap: 15px;
     background-image: url(../assets/img/bg-blur-ke-cropped.66495e1ca0cf8625ba79.png);
@@ -176,13 +178,13 @@ a {
     background-size: 100%;
   }
 }
-.load{
+.load {
   @include button.tertiary;
   display: block;
   margin: 0 auto;
   margin-bottom: 32px;
 }
-.tutor-card{
+.tutor-card {
   background-color: #7d808429;
   width: 298px;
   position: relative;
@@ -193,39 +195,39 @@ a {
   transform: rotate(-4deg);
   box-shadow: 10px 10px 100px rgb(22, 22, 22, 0.3);
   border-bottom: 2px solid rgb(40, 40, 40);
-z-index: 2;
-  .header{
+  z-index: 2;
+  .header {
     height: 300px;
     max-height: 60%;
     background-position: center;
     background-size: cover;
     position: relative;
     background-image: url(../assets/img/girl-yellow-sweater-afro-phone.359181bfef6d9ee07741.jpg);
-    .overlay{
+    .overlay {
       position: absolute;
       top: 0;
       left: 0;
-      background: linear-gradient(to top, transparent, rgb(0,0,0,0.09));
+      background: linear-gradient(to top, transparent, rgb(0, 0, 0, 0.09));
       width: 100%;
       height: 100%;
-    .icon{
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      z-index: 100;
-      cursor: pointer;
-      &:hover{
-        transform: scale(1.02);
+      .icon {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        z-index: 100;
+        cursor: pointer;
+        &:hover {
+          transform: scale(1.02);
+        }
       }
     }
   }
-  }
-  .details{
+  .details {
     padding: 16px;
     word-break: break-word;
     color: #888;
     position: relative;
-    img{
+    img {
       background: #582fff;
       padding: 10px;
       border-radius: 100%;
@@ -233,23 +235,19 @@ z-index: 2;
       position: absolute;
       top: -30px;
     }
-    .expertise{
+    .expertise {
       margin-top: 16px;
       font-size: 14px;
       margin-bottom: 8px;
     }
-    .name{
+    .name {
       font-size: 16px;
-          color: #eee;
-          margin-bottom: 10px;
-          word-break: break-word;
+      color: #eee;
+      margin-bottom: 10px;
+      word-break: break-word;
     }
-    button{
-      @include button.primary;
+    button {
       width: 100%;
     }
   }
-}
-.tutor-card::nth-child(1){
-  background-color: red;
 }

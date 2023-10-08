@@ -1,0 +1,72 @@
+.auth-container {
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  flex-direction: column;
+  background: rgb(28, 28, 28);
+  margin: 0 auto;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
+  border: 1px solid rgb(40, 40, 40);
+  border-radius: 10px;
+  width: 450px;
+  padding: 40px;
+}
+.auth-container h1 {
+  color: #fff;
+  margin-bottom: 16px;
+}
+.auth-container p {
+  color: #888;
+  margin-bottom: 20px;
+}
+.auth-container .actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.auth-container .actions button {
+  display: block;
+  width: 100%;
+}
+.auth-container .actions .tertiary-button {
+  background: rgb(40, 40, 40);
+}
+.auth-container fieldset {
+  text-align: center;
+  border: 1.5px solid rgb(40, 40, 40);
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+.auth-container fieldset legend {
+  padding: 16px;
+  color: #888;
+}
+.auth-container .socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 20px;
+}
+.auth-container .socials button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding: 12px 40px;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  border: 2px solid rgb(40, 40, 40);
+  background: rgb(28, 28, 28);
+}
+.auth-container .socials button img {
+  width: 20px;
+}/*# sourceMappingURL=auth.css.map */

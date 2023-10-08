@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include('./partials/head') %>
+  <link rel="stylesheet" href="./css/course/course.css">
   <body>
     <%- include('./partials/banner') %> <%- include('./partials/topnav') %>
     <main class="hero">
@@ -30,8 +31,8 @@
           personalized experience that's all about you!
         </p>
         <div class="buttons">
-          <button class="secondary">Learn more</button>
-          <button class="primary">Join the waitlist</button>
+          <button class="secondary-button">Learn more</button>
+          <a href="/signup"><button class="primary-button">Start Learning</button></a>
         </div>
       </div>
       <div class="img-container">
@@ -45,7 +46,7 @@
             <img src="./assets/loader.svg" alt="" />
             <p class="expertise">Expert in Music</p>
             <p class="name">Jeniffer Lopez</p>
-            <button>Follow Jeniffer</button>
+            <button class="primary-button">Follow Jeniffer</button>
           </div>
         </div>
 
@@ -64,12 +65,12 @@
             <img src="./assets/search.svg" alt="" />
             <p class="expertise">Expert in Javascript</p>
             <p class="name">Gideon Appau</p>
-            <button>Follow Gideon</button>
+            <button class="primary-button">Follow Gideon</button>
           </div>
         </div>
       </div>
     </main>
-    <%- include('./course/allcourses') %>
+    
     <a href="/courses"><button class="load">Load more courses</button></a>
     <script src="./script/script.js"></script>
   </body>

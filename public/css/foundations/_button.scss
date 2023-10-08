@@ -1,6 +1,6 @@
 $primary-color: #582fff;
 @mixin button($background, $color, $border: 2px solid $primary-color) {
-  padding: 14px 40px;
+  padding: 15px 40px;
   border-radius: 8px;
   font-weight: bold;
   font-size: 12px;
@@ -10,7 +10,7 @@ $primary-color: #582fff;
   color: $color;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
   &:hover {
-    transform: scale(1.02);
+    opacity: .8;
   }
 }
 @mixin secondary {
@@ -27,5 +27,7 @@ $primary-color: #582fff;
 }
 @mixin tertiary {
   @include button(rgb(28, 28, 28), $primary-color, none);
- 
+}
+@mixin link{
+  @include button(transparent, $primary-color, none);
 }

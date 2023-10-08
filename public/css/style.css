@@ -1,10 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Syne", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Syne", sans-serif;
   transition: 200ms ease;
 }
 
@@ -16,13 +15,80 @@ body {
   background-repeat: repeat;
 }
 
+.primary-button {
+  padding: 15px 40px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  border: 2px solid #582fff;
+  background-color: #582fff;
+  color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
+}
+.primary-button:hover {
+  opacity: 0.8;
+}
+
+.secondary-button {
+  padding: 15px 40px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  border: 2px solid rgb(40, 40, 40);
+  background-color: rgb(28, 28, 28);
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
+}
+.secondary-button:hover {
+  color: #582fff;
+}
+.secondary-button::after {
+  content: " >";
+}
+.secondary-button:hover {
+  opacity: 0.8;
+}
+
+.tertiary-button {
+  padding: 15px 40px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  border: none;
+  background-color: rgb(28, 28, 28);
+  color: #582fff;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
+}
+.tertiary-button:hover {
+  opacity: 0.8;
+}
+
+.link-button {
+  padding: 15px 40px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: #582fff;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
+}
+.link-button:hover {
+  opacity: 0.8;
+}
+
 a {
   color: #fff;
   text-decoration: none;
+  text-align: center;
 }
 
 .banner {
-  background: rgb(40, 40, 40);
+  background-color: rgba(125, 128, 132, 0.1607843137);
   color: #888;
   text-align: center;
   padding: 8px;
@@ -46,13 +112,15 @@ a {
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  padding: 15px;
+  padding: 15px 40px;
   border-bottom: 1px solid rgb(40, 40, 40);
   background: transparent;
   margin-bottom: 20px;
 }
 .topnav .logo {
-  height: 40px;
+  height: 35px;
+  background-color: #eee;
+  border-radius: 100%;
 }
 .topnav .links {
   font-size: 15px;
@@ -64,26 +132,6 @@ a {
 }
 .topnav .links a:hover {
   color: #582fff;
-}
-.topnav .buttons button {
-  padding: 14px 40px;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 12px;
-  cursor: pointer;
-  border: 2px solid rgb(40, 40, 40);
-  background-color: rgb(28, 28, 28);
-  color: #fff;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
-}
-.topnav .buttons button:hover {
-  color: #582fff;
-}
-.topnav .buttons button::after {
-  content: " >";
-}
-.topnav .buttons button:hover {
-  transform: scale(1.02);
 }
 
 .hero {
@@ -179,40 +227,6 @@ a {
   flex-direction: row;
   gap: 16px;
 }
-.hero .texts .buttons .primary {
-  padding: 14px 40px;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 12px;
-  cursor: pointer;
-  border: 2px solid #582fff;
-  background-color: #582fff;
-  color: rgb(255, 255, 255);
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
-}
-.hero .texts .buttons .primary:hover {
-  transform: scale(1.02);
-}
-.hero .texts .buttons .secondary {
-  padding: 14px 40px;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 12px;
-  cursor: pointer;
-  border: 2px solid rgb(40, 40, 40);
-  background-color: rgb(28, 28, 28);
-  color: #fff;
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
-}
-.hero .texts .buttons .secondary:hover {
-  color: #582fff;
-}
-.hero .texts .buttons .secondary::after {
-  content: " >";
-}
-.hero .texts .buttons .secondary:hover {
-  transform: scale(1.02);
-}
 .hero .img-container {
   flex: 2;
   border-radius: 10px;
@@ -229,7 +243,7 @@ a {
 }
 
 .load {
-  padding: 14px 40px;
+  padding: 15px 40px;
   border-radius: 8px;
   font-weight: bold;
   font-size: 12px;
@@ -243,7 +257,7 @@ a {
   margin-bottom: 32px;
 }
 .load:hover {
-  transform: scale(1.02);
+  opacity: 0.8;
 }
 
 .tutor-card {
@@ -311,21 +325,5 @@ a {
   word-break: break-word;
 }
 .tutor-card .details button {
-  padding: 14px 40px;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 12px;
-  cursor: pointer;
-  border: 2px solid #582fff;
-  background-color: #582fff;
-  color: rgb(255, 255, 255);
-  box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
   width: 100%;
-}
-.tutor-card .details button:hover {
-  transform: scale(1.02);
-}
-
-.tutor-card::nth-child(1) {
-  background-color: red;
 }/*# sourceMappingURL=style.css.map */

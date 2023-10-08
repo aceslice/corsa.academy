@@ -128,7 +128,7 @@
   flex-direction: row;
 }
 .courses .container .card .details .actions button {
-  padding: 14px 40px;
+  padding: 15px 40px;
   border-radius: 8px;
   font-weight: bold;
   font-size: 12px;
@@ -145,12 +145,9 @@
   content: " >";
 }
 .courses .container .card .details .actions button:hover {
-  transform: scale(1.02);
+  opacity: 0.8;
 }
 .courses .container .card .details .actions .price {
   font-weight: 500;
   color: #fff;
-}
-.courses .container .card:hover {
-  transform: scale(1.05);
 }/*# sourceMappingURL=course.css.map */
