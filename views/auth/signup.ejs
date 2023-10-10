@@ -1,9 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <%- include('../partials/head') %>
-</head>
-<body>
-    <h1>Signup</h1>
-</body>
+    <link rel="stylesheet" href="./css/auth/auth.css" />
+  </head>
+  <body>
+    <div class="auth-container">
+      <h1>Create account!</h1>
+      <form id="signup-form">
+        <label for="email">Email address</label>
+        <input type="email" name="email" placeholder="Enter email address" required>
+
+        <label for="password">Password</label>
+        <input type="password" name="password" placeholder="Enter password" required>
+
+        <label for="password">Confirm Password</label>
+        <input type="password" name="conf_password" placeholder="Confirm password" required>
+        <p class="password-error" style="font-size: 10px; text-align: end;" ></p>
+      </form>
+      <div class="actions">
+        <button class="primary-button" id="signup" form="signup-form">Create account</button>
+      </div>
+      <p style="font-size: 15px;">Already have an account? <a href="/login">Login</a></p>
+    </div>
+    <script src="./script/auth.js"></script>
+  </body>
 </html>

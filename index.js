@@ -9,6 +9,7 @@ const mongoose = require("mongoose")
 
 mongoose.connect("mongodb://127.0.0.1:27017/corsa_academy");
 
+app.use(express.json());
 app.use(express.static("public"));
 app.listen(3000, () => {
   console.log("Server started successfully on port 3000");

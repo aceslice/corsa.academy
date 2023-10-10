@@ -5,11 +5,12 @@
   justify-content: $justify;
   flex-direction: $direction;
 }
-
+body{
+  @include flex(center, center);
+  height: 100vh;
+}
 .auth-container {
-  @include flex(left, center, column);
   background: rgb(28, 28, 28);
-  margin: 0 auto;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
   border: 1px solid rgb(40, 40, 40);
   border-radius: 10px;
@@ -22,6 +23,30 @@
   p {
     color: #888;
     margin-bottom: 20px;
+  }
+  form{
+    @include flex(left, center, column);
+    margin-bottom: 20px;
+    label{
+      margin-bottom: 8px;
+      color: #fff;
+      font-size: 14px;
+    }
+    input{
+      margin-bottom: 16px;
+      height: 55px;
+      background: transparent;
+      border: 1.5px solid rgb(40, 40, 40);
+      border-radius: 10px;
+      padding: 0 16px;
+      width: 100%;
+      outline: none;
+      color: #fff;
+      font-size: 15px;
+      &:focus-visible{
+        border-color: #582fff;
+      }
+    }
   }
   .actions {
     @include flex(center, center, column);
@@ -66,4 +91,9 @@
       }
     }
   }
+  a{
+    @include colors.primary-color;
+    font-size: 14px;
+  }
+  
 }

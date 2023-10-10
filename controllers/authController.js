@@ -1,8 +1,10 @@
+const userModel = require("../models/userModel");
 const getLoginPage = (req, res)=>{
     res.render("auth/login", {title: "Login"})
 }
 const postLogin = (req, res)=>{
-    res.send("Login Posted");
+    const {email, password} = req.body;
+    console.log(email, password);
 }
 
 const getSignupPage = (req, res)=>{
