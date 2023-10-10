@@ -15,7 +15,6 @@ if (login) {
       email: login.email.value,
       password: login.password.value,
     };
-    console.log(body);
     try {
       // Send a POST request to the server with the email and password values
       const res = await fetch("/login", {
@@ -23,6 +22,10 @@ if (login) {
         body: JSON.stringify(body),
         headers: { "Content-Type": "application/json" },
       });
+      const data = await res.json();
+      if(data.user){
+        location.assign("/home")
+      }
     } catch (error) {
       console.log(error);
     }
@@ -84,6 +87,10 @@ if (signup) {
           body: JSON.stringify(body),
           headers: { "Content-Type": "application/json" },
         });
+        const data = await res.json();
+        if(data.user){
+          location.assign("/home");
+        }
       } catch (error) {
         console.log(error);
       }

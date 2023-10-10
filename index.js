@@ -25,10 +25,8 @@ app.get("/comingsoon", (req, res) => {
   res.render("comingsoon", { title: "Join the waitlist" });
 });
 app.use(authRoutes);
-app.get("/cookie", (req, res) => {
-  res.cookie("newUser", false);
-  res.cookie("isEmployee", true, { maxAge: 1000 * 60 * 60 * 24, httpOnly: true });
-  res.send("You got the cookie!");
+app.get("/home", (req, res) => {
+  res.render("dashboard", { title: "Dashboard" });
 })
 app.use((req, res)=>{
     res.status(404).render("404", {title: "Page not found"});
