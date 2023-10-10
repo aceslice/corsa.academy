@@ -55,7 +55,7 @@ async function fetchCourses() {
               <a href="" class="tag">${location}</a>
               <div class="actions">
                 ${price}
-                <a href="courses/${course._id}"><button>Book a seat</button></a>
+                <a href="courses/${course._id}"><button>Join</button></a>
               </div>
             </div>
           </div>
