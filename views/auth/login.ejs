@@ -9,17 +9,55 @@
       <h1>Welcome back!</h1>
       <form id="login-form">
         <label for="email">Email address</label>
-        <input type="email" name="email" placeholder="Enter email address" required>
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter email address"
+          required
+        />
 
         <label for="password">Password</label>
-        <input type="password" name="password" placeholder="Enter password" required>
-        <a href="/login" style="text-align: end;">Forgot password?</a>
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter password"
+          required
+        />
+        <a href="/login" style="text-align: end">Forgot password?</a>
       </form>
       <div class="actions">
-        <button class="primary-button" id="login" form="login-form">Lets go!</button>
+        <button class="primary-button" id="login" form="login-form">
+          Lets go!
+        </button>
       </div>
       <p>Create new account? <a href="/signup">Create account</a></p>
     </div>
-    <script src="./script/auth.js"></script>
+    <script>
+      const login = document.getElementById("login-form");
+
+      login.addEventListener("submit", async (evt) => {
+        evt.preventDefault();
+        // Get the email and password values from the form
+        const body = {
+          email: login.email.value,
+          password: login.password.value,
+        };
+        try {
+          // Send a POST request to the server with the email and password values
+          const res = await fetch("/login", {
+            method: "POST",
+            body: JSON.stringify(body),
+            headers: { "Content-Type": "application/json" },
+          });
+          const data = await res.json();
+          console.log(data);
+          if (data.user) {
+            location.replace("/home");
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      });
+    </script>
   </body>
 </html>

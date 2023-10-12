@@ -4,6 +4,9 @@
     <%- include('partials/head') %>
 </head>
 <body>
-    <h1 style="color: #fff;">Welcome home</h1>
+    <h1 style="color: #fff;">Welcome <%= user.email %></h1>
+
+    <a href="/logout">Logout</a>
+
 </body>
 </html>

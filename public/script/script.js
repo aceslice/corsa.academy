@@ -2,7 +2,14 @@
 const container = document.querySelector(".container");
 const tabs = document.querySelectorAll(".tablinks");
 const allTab = document.querySelector(".tablinks:first-child");
-allTab.className += " active";
+if(allTab && tabs){
+  allTab.className += " active";
+  // Call fetchCourses on page load
+  fetchCourses();
+}
+
+
+
 // Fetch courses based on the active tab
 async function fetchCourses() {
   try {
@@ -74,21 +81,19 @@ async function fetchCourses() {
   }
 }
 
-// Call fetchCourses on page load
-fetchCourses();
 
 // Add click event listeners to the tab links
 tabs.forEach((tab) => {
   tab.addEventListener("click", (evt) => {
     evt.preventDefault();
-    const cityName = evt.target.childNodes[0].data.trim();
-    openCity(evt, cityName);
+    const tabName = evt.target.childNodes[0].data.trim();
+    updateTab(evt, tabName);
     fetchCourses();
   });
 });
 
 // Update the active tab link
-function openCity(evt) {
+function updateTab(evt) {
   evt.preventDefault();
   console.log(evt.currentTarget);
   // Get all tab links and remove the "active" class

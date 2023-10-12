@@ -1,5 +1,7 @@
 <nav class="topnav">
-  <a href="/"> <img src="./assets/img/logo.png" alt="Corsa Academy logo" class="logo" /> </a>
+  <a href="/">
+    <img src="./assets/img/logo.png" alt="Corsa Academy logo" class="logo" />
+  </a>
   <div class="links">
     <a href="/">For students</a>
     <a href="/about">About us</a>
@@ -8,7 +10,10 @@
     <a href="/seminars">Rersources</a>
   </div>
   <div class="buttons">
-    <!-- <a href="/login"><button class="link-button">Login</button></a> -->
-   <a href="auth"><button class="primary-button">Get Started now!</button></a>
+    <% if (user) { %>
+    <a href="/home"><%= user.username %></a>
+    <% } else {%>
+    <a href="auth"><button class="primary-button">Get Started now!</button></a>
+    <% } %>
   </div>
 </nav>
