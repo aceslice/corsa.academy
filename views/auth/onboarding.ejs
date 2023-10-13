@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+    <link rel="stylesheet" href="/css/auth/auth.css" />
+  </head>
+  <body>
+    <div class="auth-container">
+      <h1>Almost there</h1>
+      <p>
+        Your name is a small part of the bigger picture. Share your name with us
+        so we can get to know you better.
+      </p>
+      <form name="onboarding" id="onboarding">
+        <label for="name">Your name</label>
+        <input type="text" name="name" placeholder="Enter your name" required />
+
+        <label for="username">Username (Optional)</label>
+        <input
+          type="text"
+          name="username"
+          placeholder="Add your username (optional)"
+        />
+      </form>
+
+      <div class="actions">
+        <button class="primary-button" id="signup" form="onboarding">
+          Lets go!
+        </button>
+      </div>
+    </div>
+  </body>
+  <script>
+    // Get the form element
+    const form = document.getElementById("onboarding");
+
+    // Listen for the form submission event
+    form.addEventListener("submit", async (event) => {
+      // Prevent the default form submission behavior
+      event.preventDefault();
+
+      // Get the form data
+      const nameWords = form.name.value.trim().split(" ");
+
+      // Assign the first word to the firstName variable
+      const firstName = nameWords[0];
+
+      // Assign the last word to the lastName variable
+      const lastName = nameWords[nameWords.length - 1];
+
+      // Assign the remaining words to the middleName variable
+      const middleName = nameWords.slice(1, nameWords.length - 1).join(" ");
+
+      // Send the form data to the server
+      const body = {
+        firstName,
+        middleName,
+        lastName,
+        username: form.username.value.trim(),
+      };
+      console.log(body);
+      try {
+        const res = await fetch("/onboarding",
+        {
+          method: "PUT",
+          body: JSON.stringify(body),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const data = await res.json();
+        console.log(data);
+        if (data.user) {
+          location.replace("/app");
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    });
+  </script>
+  <script src="./script/auth.js"></script>
+</html>

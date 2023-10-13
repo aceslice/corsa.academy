@@ -1,13 +1,10 @@
 const User = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const requireAuth = require("../middleware/authMiddleware");
 const maxAge = 3 * 24 * 60 * 60;
 const createToken = (id) => {
-  return jwt.sign(
-    { id },
-    process.env.SECRET_KEY,
-    { expiresIn: maxAge }
-  );
+  return jwt.sign({ id }, process.env.SECRET_KEY, { expiresIn: maxAge });
 };
 const getLoginPage = (req, res) => {
   res.render("auth/login", { title: "Login" });
@@ -53,16 +50,53 @@ const postSignup = async (req, res) => {
 const getAuthentication = (req, res) => {
   res.render("auth/auth", { title: "Welcome to Corsa Academy" });
 };
-const logOut = (req, res) =>{
-  res.cookie("jwt", '', {maxAge: 1});
+const logOut = (req, res) => {
+  res.cookie("jwt", "", { maxAge: 1 });
   res.redirect("/auth");
-}
+};
+const onboarding = (req, res) => {
+  res.render("auth/onboarding", { title: "Welcome to Corsa Academy" });
+};
+const putOnboarding = (req, res) => {
+  const token = req.cookies.jwt;
+  if (token) {
+    jwt.verify(token, process.env.SECRET_KEY, async (err, decodedToken) => {
+      try {
+        // Get the ID of the user to update
+        const userId = decodedToken.id;
 
+        // Get the first name, middle name, and last name from the request body
+        const { firstName, middleName, lastName, username } = req.body;
+
+        // Find the user by ID and update the first name, middle name, and last name
+        const result = await User.updateOne(
+          { _id: userId },
+          { $set: { firstName, middleName, lastName, username } }
+        );
+
+        // If the user is not found, send a 404 error
+        if (result.nModified === 0) {
+          return res.status(404).send("User not found");
+        }
+
+        // Send a response with the updated user data
+        res.status(200).json({user: userId});
+      } catch (error) {
+        console.log(error);
+        res.status(500).send("Server Error");
+      }
+    });
+  } else {
+    res.redirect("/auth");
+  }
+};
 module.exports = {
   getLoginPage,
   getSignupPage,
   postLogin,
   postSignup,
   getAuthentication,
-  logOut
+  logOut,
+  onboarding,
+  putOnboarding,
 };

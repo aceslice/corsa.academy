@@ -26,6 +26,7 @@ body {
   // background-position: center;
   // background-size: 100%;
   background-repeat: repeat;
+  color: #fff
 }
 .primary-button {
   @include button.primary;

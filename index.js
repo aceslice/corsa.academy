@@ -34,8 +34,8 @@ app.get("/comingsoon", (req, res) => {
   res.render("comingsoon", { title: "Join the waitlist" });
 });
 app.use(authRoutes);
-app.get("/home", requireAuth, (req, res) => {
-  res.render("dashboard", { title: "Dashboard" });
+app.get("/app", requireAuth, (req, res) => {
+  res.render("dashboard/dashboard", { title: "Dashboard" });
 });
 app.use((req, res) => {
   res.status(404).render("404", { title: "Page not found" });
