@@ -5,6 +5,7 @@ const course = require("./routes/courseRoutes");
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
+const User = require("./models/userModel");
 dotenv.config();
 
 const app = express();
@@ -37,6 +38,18 @@ app.use(authRoutes);
 app.get("/app", requireAuth, (req, res) => {
   res.render("dashboard/dashboard", { title: "Dashboard" });
 });
+app.get("/:username", requireAuth,  async(req, res) =>{
+   const username = req.params.username;
+  try{
+    const user = await User.findOne({username}, {password: 0});
+    console.log(user);
+    if(user){
+      res.json(user);
+    }
+  }catch(err){
+    console.log(err)
+  }
+})
 app.use((req, res) => {
   res.status(404).render("404", { title: "Page not found" });
 });

@@ -1,13 +1,8 @@
 @use "./foundations/button";
 @use "./foundations/colors";
+@use "./foundations/flex";
 @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap");
 
-@mixin flex($align, $justify: center, $direction: row) {
-  display: flex;
-  align-items: $align;
-  justify-content: $justify;
-  flex-direction: $direction;
-}
 $primary-color: #582fff;
 $secondary-color: #ff1b6b;
 * {
@@ -52,7 +47,7 @@ a {
   padding: 8px;
   font-size: 15px;
   color: #fff;
-  @include flex(center, center);
+  @include flex.flex(center, center);
   position: relative;
   span {
     font-size: 24px;
@@ -62,7 +57,7 @@ a {
   }
 }
 .topnav {
-  @include flex(center, space-between);
+  @include flex.flex(center, space-between);
   padding: 15px 40px;
   border-bottom: 1px solid rgb(40, 40, 40);
   background: transparent;
@@ -83,15 +78,71 @@ a {
       }
     }
   }
+  .user {
+    &-settings {
+     @include flex.flex(center, center);
+     padding-left: 20px;
+     flex-shrink: 0;
+     svg {
+      width: 10px;
+      flex-shrink: 0;
+      cursor: pointer;
+
+      @media screen and (max-width: 575px) {
+       display: none;
+      }
+     }
+     .notify {
+      position: relative;
+      svg {
+       width: 20px;
+       margin-left: 24px;
+       flex-shrink: 0;
+      }
+      .notification {
+       width: 8px;
+       height: 8px;
+       border-radius: 50%;
+       background-color: #ec5252;
+       position: absolute;
+       right: 1px;
+       border: 1px solid var(--theme-bg);
+       top: -2px;
+       @media screen and (max-width: 575px) {
+        display: none;
+       }
+      }
+     }
+    }
+    &-img {
+     width: 30px;
+     height: 30px;
+     flex-shrink: 0;
+     object-fit: cover;
+     border-radius: 50%;
+     cursor: pointer;
+
+    }
+    &-name {
+     color: #fff;
+     font-size: 14px;
+     margin: 0 6px 0 12px;
+     cursor: pointer;
+
+     @media screen and (max-width: 575px) {
+      display: none;
+     }
+    }
+   }
 }
 .hero {
   padding: 40px 80px;
-  @include flex(center, space-evenly);
+  @include flex.flex(center, space-evenly);
 
   height: 100%;
   .texts {
     .info {
-      @include flex(center, center);
+      @include flex.flex(center, center);
       width: 220px;
       border: 1px solid #7d808429;
       border-radius: 40px;
@@ -120,7 +171,7 @@ a {
         color: $primary-color;
         display: inline-block;
         .chips {
-          @include flex(center, center);
+          @include flex.flex(center, center);
           .chip {
             height: 35px;
             width: 35px;
@@ -163,7 +214,7 @@ a {
       font-size: 16px;
     }
     .buttons {
-      @include flex(center, left);
+      @include flex.flex(center, left);
       gap: 16px;
     }
   }
@@ -172,7 +223,7 @@ a {
     // background: #7d808429;
     border-radius: 10px;
     height: 500px;
-    @include flex(center, center);
+    @include flex.flex(center, center);
     flex-wrap: wrap;
     gap: 15px;
     background-image: url(../assets/img/bg-blur-ke-cropped.66495e1ca0cf8625ba79.png);
@@ -247,6 +298,7 @@ a {
       color: #eee;
       margin-bottom: 10px;
       word-break: break-word;
+      
     }
     button {
       width: 100%;

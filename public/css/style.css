@@ -134,6 +134,67 @@ a {
 .topnav .links a:hover {
   color: #582fff;
 }
+.topnav .user-settings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding-left: 20px;
+  flex-shrink: 0;
+}
+.topnav .user-settings svg {
+  width: 10px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+@media screen and (max-width: 575px) {
+  .topnav .user-settings svg {
+    display: none;
+  }
+}
+.topnav .user-settings .notify {
+  position: relative;
+}
+.topnav .user-settings .notify svg {
+  width: 20px;
+  margin-left: 24px;
+  flex-shrink: 0;
+}
+.topnav .user-settings .notify .notification {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ec5252;
+  position: absolute;
+  right: 1px;
+  border: 1px solid var(--theme-bg);
+  top: -2px;
+}
+@media screen and (max-width: 575px) {
+  .topnav .user-settings .notify .notification {
+    display: none;
+  }
+}
+.topnav .user-img {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.topnav .user-name {
+  color: #fff;
+  font-size: 14px;
+  margin: 0 6px 0 12px;
+  cursor: pointer;
+}
+@media screen and (max-width: 575px) {
+  .topnav .user-name {
+    display: none;
+  }
+}
 
 .hero {
   padding: 40px 80px;
