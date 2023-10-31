@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include('./partials/head') %>
-  <link rel="stylesheet" href="./css/course/course.css">
+  <link rel="stylesheet" href="./css/course/course.css" />
   <body>
     <%- include('./partials/banner') %> <%- include('./partials/topnav') %>
     <main class="hero">
@@ -26,13 +26,21 @@
           to your perfect tutor
         </h1>
         <p>
-          We believe in fun and effective learning with like-minded
-          individuals and familiar experts. Join the peer to peer community for a
+          We believe in fun and effective learning with like-minded individuals
+          and familiar experts. Join the peer to peer community for a
           personalized experience that's all about you!
         </p>
         <div class="buttons">
           <button class="secondary-button">Learn more</button>
-          <a href="/signup"><button class="primary-button">Join us today!</button></a>
+          <% if (user) { %>
+          <a href="/app"
+            ><button class="primary-button">Go to dashboard</button></a
+          >
+          <% } else {%>
+          <a href="/signup"
+            ><button class="primary-button">Join us today!</button></a
+          >
+          <% } %>
         </div>
       </div>
       <div class="img-container">
@@ -43,7 +51,7 @@
             </div>
           </div>
           <div class="details">
-            <img src="./assets/loader.svg" alt="" class="img"/>
+            <img src="./assets/loader.svg" alt="" class="img" />
             <p class="expertise">Expert in Music</p>
             <p class="name">Jeniffer Lopez</p>
             <button class="primary-button">Follow Jeniffer</button>
@@ -57,20 +65,20 @@
               background-image: url('./assets/img/guy-happy-in-couch.8da7cbfccd005211e227.jpg');
             "
           >
-          <div class="overlay">
-            <img src="./assets/heart.svg" alt="" class="icon">
-          </div>
+            <div class="overlay">
+              <img src="./assets/heart.svg" alt="" class="icon" />
+            </div>
           </div>
           <div class="details">
-            <img src="./assets/verified.svg" alt="" class="img"/>
+            <img src="./assets/verified.svg" alt="" class="img" />
             <p class="expertise">Expert in Javascript</p>
-            <p class="name">Gideon Appau </p>
+            <p class="name">Gideon Appau</p>
             <button class="primary-button">Follow Gideon</button>
           </div>
         </div>
       </div>
     </main>
-    
+
     <a href="/courses"><button class="load">Load more meetups</button></a>
     <script src="./script/script.js"></script>
   </body>
