@@ -1,5 +1,6 @@
+@use "./flex";
 $primary-color: #582fff;
-@mixin button($background, $color, $border: 2px solid $primary-color) {
+@mixin button($background, $color, $border: 1.5px solid $primary-color) {
   padding: 15px 40px;
   border-radius: 8px;
   font-weight: bold;
@@ -9,6 +10,13 @@ $primary-color: #582fff;
   background-color: $background;
   color: $color;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
+  @include flex.flex(center, center);
+  gap: 4px;
+  svg {
+    width: 18px;
+    flex-shrink: 0;
+    padding:0;
+   }
   &:hover {
     opacity: .8;
   }
@@ -20,7 +28,7 @@ $primary-color: #582fff;
   &::after {
     content: " >";
   }
-  @include button(rgb(28, 28, 28), #fff, 2px solid rgb(40, 40, 40));
+  @include button(rgb(28, 28, 28), #fff, 1.5px solid rgb(40, 40, 40));
 }
 @mixin primary {
   @include button($primary-color, rgb(255, 255, 255));
@@ -29,5 +37,5 @@ $primary-color: #582fff;
   @include button(rgb(28, 28, 28), $primary-color, none);
 }
 @mixin link{
-  @include button(transparent, $primary-color, none);
+  @include button(transparent, #eee, none);
 }

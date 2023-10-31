@@ -38,16 +38,18 @@ app.use(authRoutes);
 app.get("/app", requireAuth, (req, res) => {
   res.render("dashboard/dashboard", { title: "Dashboard" });
 });
-app.get("/:username", requireAuth,  async(req, res) =>{
+app.get("/:username", requireAuth,  async(req, res, next) =>{
    const username = req.params.username;
   try{
-    const user = await User.findOne({username}, {password: 0});
-    console.log(user);
-    if(user){
-      res.json(user);
+    const currentUser = await User.findOne({username}, {password: 0});
+    console.log("currentUser",currentUser);
+    if(!currentUser){
+      return next();
+    }else{
+      res.render("dashboard/profile", {title: "Profile", currentUser});
     }
   }catch(err){
-    console.log(err)
+    console.log("Error message",err);
   }
 })
 app.use((req, res) => {

@@ -2,7 +2,11 @@
 @use "./foundations/colors";
 @use "./foundations/flex";
 @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap");
-
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+ }
+ 
 $primary-color: #582fff;
 $secondary-color: #ff1b6b;
 * {

@@ -133,16 +133,26 @@
   font-weight: bold;
   font-size: 12px;
   cursor: pointer;
-  border: 2px solid rgb(40, 40, 40);
+  border: 1.5px solid rgb(40, 40, 40);
   background-color: rgb(28, 28, 28);
   color: #fff;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 4px;
 }
 .courses .container .card .details .actions button:hover {
   color: #582fff;
 }
 .courses .container .card .details .actions button::after {
   content: " >";
+}
+.courses .container .card .details .actions button svg {
+  width: 18px;
+  flex-shrink: 0;
+  padding: 0;
 }
 .courses .container .card .details .actions button:hover {
   opacity: 0.8;

@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&display=swap");
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -22,10 +27,20 @@ body {
   font-weight: bold;
   font-size: 12px;
   cursor: pointer;
-  border: 2px solid #582fff;
+  border: 1.5px solid #582fff;
   background-color: #582fff;
   color: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 4px;
+}
+.primary-button svg {
+  width: 18px;
+  flex-shrink: 0;
+  padding: 0;
 }
 .primary-button:hover {
   opacity: 0.8;
@@ -37,16 +52,26 @@ body {
   font-weight: bold;
   font-size: 12px;
   cursor: pointer;
-  border: 2px solid rgb(40, 40, 40);
+  border: 1.5px solid rgb(40, 40, 40);
   background-color: rgb(28, 28, 28);
   color: #fff;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 4px;
 }
 .secondary-button:hover {
   color: #582fff;
 }
 .secondary-button::after {
   content: " >";
+}
+.secondary-button svg {
+  width: 18px;
+  flex-shrink: 0;
+  padding: 0;
 }
 .secondary-button:hover {
   opacity: 0.8;
@@ -62,6 +87,16 @@ body {
   background-color: rgb(28, 28, 28);
   color: #582fff;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 4px;
+}
+.tertiary-button svg {
+  width: 18px;
+  flex-shrink: 0;
+  padding: 0;
 }
 .tertiary-button:hover {
   opacity: 0.8;
@@ -75,8 +110,18 @@ body {
   cursor: pointer;
   border: none;
   background-color: transparent;
-  color: #582fff;
+  color: #eee;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 4px;
+}
+.link-button svg {
+  width: 18px;
+  flex-shrink: 0;
+  padding: 0;
 }
 .link-button:hover {
   opacity: 0.8;
@@ -314,9 +359,19 @@ a {
   background-color: rgb(28, 28, 28);
   color: #582fff;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 4px;
   display: block;
   margin: 0 auto;
   margin-bottom: 32px;
+}
+.load svg {
+  width: 18px;
+  flex-shrink: 0;
+  padding: 0;
 }
 .load:hover {
   opacity: 0.8;

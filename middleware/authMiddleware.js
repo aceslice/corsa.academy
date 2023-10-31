@@ -26,7 +26,6 @@ const checkUser = (req, res, next) => {
       if (err) {
         next();
         res.locals.user = null;
-        console.log(err.message);
       } else {
         let user = await User.findById(decodedToken.id);
         res.locals.user = user;
