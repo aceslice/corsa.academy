@@ -10,14 +10,14 @@
   overflow: hidden;
   background-color: rgb(28, 28, 28);
   padding: 10px;
-  border-radius: 40px;
+  border-radius: 20px;
   margin-bottom: 32px;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
   border: 1px solid rgb(40, 40, 40);
 }
 .courses .tab button {
   background-color: transparent;
-  color: #ddd;
+  color: #888;
   float: left;
   border: none;
   outline: none;
@@ -30,12 +30,12 @@
   text-transform: capitalize;
 }
 .courses .tab button:hover {
-  background-color: #ffffff;
-  color: rgb(28, 28, 28);
+  background-color: rgb(40, 40, 40);
+  color: #fff;
 }
 .courses .tab button.active {
-  background-color: #fff;
-  color: rgb(28, 28, 28);
+  background-color: rgb(40, 40, 40);
+  color: #fff;
 }
 
 .courses {

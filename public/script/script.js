@@ -72,7 +72,7 @@ async function fetchCourses() {
       container.innerHTML = cards;
     } else {
       // Display a message if no courses were found
-      container.innerHTML = `<h1> No courses on ${activeTabText} was found</h1>`;
+      container.innerHTML = `<h1> No meetups on ${activeTabText} was found</h1>`;
     }
   } catch (err) {
     console.log(err);

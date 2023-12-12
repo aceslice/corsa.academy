@@ -5,8 +5,8 @@
 html {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
- }
- 
+}
+
 $primary-color: #582fff;
 $secondary-color: #ff1b6b;
 * {
@@ -25,7 +25,7 @@ body {
   // background-position: center;
   // background-size: 100%;
   background-repeat: repeat;
-  color: #fff
+  color: #fff;
 }
 .primary-button {
   @include button.primary;
@@ -84,60 +84,59 @@ a {
   }
   .user {
     &-settings {
-     @include flex.flex(center, center);
-     padding-left: 20px;
-     flex-shrink: 0;
-     svg {
-      width: 10px;
+      @include flex.flex(center, center);
+      padding-left: 20px;
       flex-shrink: 0;
+      svg {
+        width: 10px;
+        flex-shrink: 0;
+        cursor: pointer;
+
+        @media screen and (max-width: 575px) {
+          display: none;
+        }
+      }
+      .notify {
+        position: relative;
+        svg {
+          width: 20px;
+          margin-left: 24px;
+          flex-shrink: 0;
+        }
+        .notification {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background-color: #ec5252;
+          position: absolute;
+          right: 1px;
+          border: 1px solid var(--theme-bg);
+          top: -2px;
+          @media screen and (max-width: 575px) {
+            display: none;
+          }
+        }
+      }
+    }
+    &-img {
+      width: 30px;
+      height: 30px;
+      flex-shrink: 0;
+      object-fit: cover;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    &-name {
+      color: #fff;
+      font-size: 14px;
+      margin: 0 6px 0 12px;
       cursor: pointer;
 
       @media screen and (max-width: 575px) {
-       display: none;
-      }
-     }
-     .notify {
-      position: relative;
-      svg {
-       width: 20px;
-       margin-left: 24px;
-       flex-shrink: 0;
-      }
-      .notification {
-       width: 8px;
-       height: 8px;
-       border-radius: 50%;
-       background-color: #ec5252;
-       position: absolute;
-       right: 1px;
-       border: 1px solid var(--theme-bg);
-       top: -2px;
-       @media screen and (max-width: 575px) {
         display: none;
-       }
       }
-     }
     }
-    &-img {
-     width: 30px;
-     height: 30px;
-     flex-shrink: 0;
-     object-fit: cover;
-     border-radius: 50%;
-     cursor: pointer;
-
-    }
-    &-name {
-     color: #fff;
-     font-size: 14px;
-     margin: 0 6px 0 12px;
-     cursor: pointer;
-
-     @media screen and (max-width: 575px) {
-      display: none;
-     }
-    }
-   }
+  }
 }
 .hero {
   padding: 40px 80px;
@@ -302,7 +301,6 @@ a {
       color: #eee;
       margin-bottom: 10px;
       word-break: break-word;
-      
     }
     button {
       width: 100%;

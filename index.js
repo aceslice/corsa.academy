@@ -16,11 +16,11 @@ mongoose.connect(`${process.env.DB_CONNECTION_STRING}`);
 
 app.use(express.json());
 app.use(express.static("public"));
-app.use(cookieParser())
+app.use(cookieParser());
 app.listen(3000, () => {
   console.log("Server started successfully on port 3000");
 });
-app.get("*",checkUser)
+app.get("*", checkUser);
 app.get("/", (req, res) => {
   res.render("index", {
     title: "Learn from your peers, anytime, anywhere",
@@ -35,23 +35,61 @@ app.get("/comingsoon", (req, res) => {
   res.render("comingsoon", { title: "Join the waitlist" });
 });
 app.use(authRoutes);
-app.get("/app", requireAuth, (req, res) => {
-  res.render("dashboard/dashboard", { title: "Dashboard" });
-});
-app.get("/:username", requireAuth,  async(req, res, next) =>{
-   const username = req.params.username;
-  try{
-    const currentUser = await User.findOne({username}, {password: 0});
-    console.log("currentUser",currentUser);
-    if(!currentUser){
-      return next();
-    }else{
-      res.render("dashboard/profile", {title: "Profile", currentUser});
-    }
-  }catch(err){
-    console.log("Error message",err);
+app.get("/app", requireAuth, async (req, res) => {
+  try {
+    const peers = await User.find({}, { password: 0 , email: 0 });
+
+    res.render("dashboard/dashboard", { title: "Dashboard", peers });
+  } catch (error) {
+    console.log(error);
   }
-})
+});
+app.get("/peers", requireAuth, async (req, res) => {
+  try {
+    const peers = await User.find({}, { password: 0 , email: 0 });
+    res.json(peers);
+  } catch (error) {
+    console.log(error);
+  }
+});
+app.get("/peers/:username", requireAuth, async (req, res, next) => {
+  const username = req.params.username;
+  const user = await User.findOne({username: username}, {password: 0}).populate("followers").populate("following");
+  res.send(user)
+});
+
+// Update a user's followers
+app.put("/peers/:id/follow", async (req, res) => {
+  try {
+    // Get the ID of the user to update
+    const userId = req.params.id;
+
+    // Get the follower's ID from the request body
+    const followerId = req.body.followerId;
+
+    // Find the user by ID and update the followers array
+    const result = await User.updateOne(
+      { _id: userId },
+      { $addToSet: { following: followerId } }
+    );
+
+    const alt = await User.updateOne(
+      { _id: followerId },
+      { $addToSet: { followers: userId } }
+    );
+    // If the user is not found, send a 404 error
+    if (result.nModified === 0) {
+      return res.status(404).send("User not found");
+    }
+
+    // Send a response with the updated user data
+    res.status(200);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Server Error");
+  }
+});
+
 app.use((req, res) => {
   res.status(404).render("404", { title: "Page not found" });
 });

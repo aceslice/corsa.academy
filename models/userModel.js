@@ -34,7 +34,10 @@ const userSchema = new mongoose.Schema({
       return null;
     },
   },
-  profilePicture: String,
+  profilePicture: {
+    type: String,
+    default: null
+  },
   enrolledEvents: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -50,13 +53,13 @@ const userSchema = new mongoose.Schema({
   followers: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Follower",
+      ref: "User",
     },
   ],
   following: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Follower",
+      ref: "User",
     },
   ],
 });
@@ -66,6 +69,6 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-const User = mongoose.model("users", userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;
