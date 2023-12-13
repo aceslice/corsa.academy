@@ -24,8 +24,8 @@ const checkUser = (req, res, next) => {
   if (token) {
     jwt.verify(token, process.env.SECRET_KEY, async (err, decodedToken) => {
       if (err) {
-        next();
         res.locals.user = null;
+        next();
       } else {
         let user = await User.findById(decodedToken.id);
         res.locals.user = user;

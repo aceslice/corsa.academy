@@ -37,7 +37,7 @@ app.get("/comingsoon", (req, res) => {
 app.use(authRoutes);
 app.get("/app", requireAuth, async (req, res) => {
   try {
-    const peers = await User.find({}, { password: 0 , email: 0 });
+    const peers = await User.find({}, { password: 0, email: 0 });
 
     res.render("dashboard/dashboard", { title: "Dashboard", peers });
   } catch (error) {
@@ -46,7 +46,7 @@ app.get("/app", requireAuth, async (req, res) => {
 });
 app.get("/peers", requireAuth, async (req, res) => {
   try {
-    const peers = await User.find({}, { password: 0 , email: 0 });
+    const peers = await User.find({}, { password: 0, email: 0 });
     res.json(peers);
   } catch (error) {
     console.log(error);
@@ -54,8 +54,10 @@ app.get("/peers", requireAuth, async (req, res) => {
 });
 app.get("/peers/:username", requireAuth, async (req, res, next) => {
   const username = req.params.username;
-  const user = await User.findOne({username: username}, {password: 0}).populate("followers").populate("following");
-  res.send(user)
+  const user = await User.findOne({ username: username }, { password: 0 })
+    .populate("followers")
+    .populate("following");
+  res.send(user);
 });
 
 // Update a user's followers
@@ -89,7 +91,32 @@ app.put("/peers/:id/follow", async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
+app.put("/peers/:id/unfollow", async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const followerId = req.body.followerId;
 
+    const result = await User.updateOne(
+      { _id: userId },
+      { $pull: { following: followerId } }
+    );
+    const alt = await User.updateOne(
+      { _id: followerId },
+      { $pull: { followers: userId } }
+    );
+
+    if (result.nModified === 0 && alt.nModified === 0) {
+      return res.status(404).send("Unfollow operation failed");
+    }
+
+    res.status(200).send("Unfollowed successfully");
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Server Error");
+  }
+});
 app.use((req, res) => {
-  res.status(404).render("404", { title: "Page not found" });
+  res
+    .status(404)
+    .render("404", { title: "Page not found", user: res.locals.user });
 });
