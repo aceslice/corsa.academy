@@ -75,7 +75,7 @@
       <div class="peers">
         <h1>Peers you may know</h1>
 
-        <% if (peers.length> 0) { %> <% for( let i=0; i <= 3; i++ ) { const
+        <% if (peers.length> 0) { %> <% for( let i=0; i <= 4; i++ ) { const
         {firstName, lastName, middleName, username, followers, following,
         _id}=peers[i]; %> <% if (username===user.username) { continue; %> <% }
         else {%>
@@ -98,29 +98,11 @@
           <% if (user.following.includes(_id)) { %>
           <button class="tertiary-button">Following</button>
           <% } else {%>
-          <svg
-            data-custom="<%= _id%>"
+            <button data-custom="<%= _id%>"
             data-user="<%= user._id%>"
-            class="icon"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 6L12 18"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-            />
-            <path
-              d="M18 12L6 12"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-            />
-          </svg>
+            class="primary-button icon">
+          Follow
+            </button>
           <% }%>
         </div>
         <% }%> <% } %> <% } else{ %>
@@ -145,20 +127,21 @@
       const followButtons = document.querySelectorAll(".icon");
       for (let followButton of followButtons) {
         followButton.addEventListener("click", async () => {
-          followButton.classList.toggle(".icon");
+          followButton.classList.remove(".primary-button");
+          
           const followerId = followButton.getAttribute("data-custom");
           const userId = followButton.getAttribute("data-user");
-          try {
-            const res = await fetch(`peers/${userId}/follow`, {
-              method: "PUT",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ followerId }),
-            });
-          } catch (error) {
-            console.log(error);
-          }
+          // try {
+          //   const res = await fetch(`peers/${userId}/follow`, {
+          //     method: "PUT",
+          //     headers: {
+          //       "Content-Type": "application/json",
+          //     },
+          //     body: JSON.stringify({ followerId }),
+          //   });
+          // } catch (error) {
+          //   console.log(error);
+          // }
         });
       }
     </script>
