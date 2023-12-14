@@ -57,7 +57,7 @@ app.get("/peers/:username", requireAuth, async (req, res, next) => {
   const user = await User.findOne({ username: username }, { password: 0 })
     .populate("followers")
     .populate("following");
-  res.send(user);
+  res.render("dashboard/profile", { peer:user, title: user.username });
 });
 
 // Update a user's followers
