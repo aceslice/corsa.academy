@@ -21,10 +21,12 @@ app.listen(3000, () => {
   console.log("Server started successfully on port 3000");
 });
 app.get("*", checkUser);
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
+  let tutors = await User.find({});
   res.render("index", {
     title: "Learn from your peers, anytime, anywhere",
     categories,
+    tutors
   });
 });
 app.use("/courses", course);
@@ -39,7 +41,7 @@ app.get("/app", requireAuth, async (req, res) => {
   try {
     const peers = await User.find({}, { password: 0, email: 0 });
 
-    res.render("dashboard/dashboard", { title: "Dashboard", peers });
+    res.render("dashboard/dashboard", { title: "Dashboard", peers, user: res.locals.user });
   } catch (error) {
     console.log(error);
   }
@@ -61,7 +63,7 @@ app.get("/peers/:username", requireAuth, async (req, res, next) => {
 });
 
 // Update a user's followers
-app.put("/peers/:id/follow", async (req, res) => {
+app.put("/peers/:id/follow", requireAuth,async (req, res) => {
   try {
     // Get the ID of the user to update
     const userId = req.params.id;
@@ -91,7 +93,7 @@ app.put("/peers/:id/follow", async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
-app.put("/peers/:id/unfollow", async (req, res) => {
+app.put("/peers/:id/unfollow", requireAuth ,async (req, res) => {
   try {
     const userId = req.params.id;
     const followerId = req.body.followerId;

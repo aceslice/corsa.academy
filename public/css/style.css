@@ -443,4 +443,11 @@ a {
 }
 .tutor-card .details button {
   width: 100%;
+}
+
+.follows {
+  font-size: 10px;
+  color: #582fff;
+  right: 0;
+  margin-bottom: 4px;
 }/*# sourceMappingURL=style.css.map */

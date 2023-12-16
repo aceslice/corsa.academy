@@ -2,6 +2,7 @@
 <html lang="en">
   <%- include('./partials/head') %>
   <link rel="stylesheet" href="./css/course/course.css" />
+
   <body>
     <%- include('./partials/banner') %> <%- include('./partials/topnav') %>
     <main class="hero">
@@ -44,7 +45,10 @@
         </div>
       </div>
       <div class="img-container">
-        <div class="tutor-card">
+        <% if (tutors !== null) { %> <% for( let i = 0; i<Math.min(tutors.length, 2); i++ ) { const
+        {firstName, lastName, username, _id} = tutors[i]; %> <% if (username &&
+        user && (username===user.username)) { continue; %> <% } else {%>
+        <div class="tutor-card" id="_id">
           <div class="header">
             <div class="overlay">
               <img src="./assets/heart.svg" alt="" class="icon" />
@@ -53,33 +57,37 @@
           <div class="details">
             <img src="./assets/loader.svg" alt="" class="img" />
             <p class="expertise">Expert in Music</p>
-            <p class="name">Jeniffer Lopez</p>
-            <button class="primary-button">Follow Jeniffer</button>
+            <% if (user && user.followers.includes(_id)) { %>
+            <p class="follows">Follows you</p>
+            <% } %>
+            <p class="name"><%= firstName %> <%= lastName %></p>
+            <% if (user && user.following.includes(_id)) { %>
+            <button
+              class="unfollow tertiary-button"
+              data-custom="<%= _id%>"
+              data-user="<%= user._id%>"
+            >
+              Following
+            </button>
+            <% } else if (user) {%>
+            <button
+              data-custom="<%= _id%>"
+              data-user="<%= user._id%>"
+              class="primary-button icon"
+            >
+              Follow @ <%= username %>
+            </button>
+            <% }%>
           </div>
         </div>
-
-        <div class="tutor-card">
-          <div
-            class="header"
-            style="
-              background-image: url('./assets/img/guy-happy-in-couch.8da7cbfccd005211e227.jpg');
-            "
-          >
-            <div class="overlay">
-              <img src="./assets/heart.svg" alt="" class="icon" />
-            </div>
-          </div>
-          <div class="details">
-            <img src="./assets/verified.svg" alt="" class="img" />
-            <p class="expertise">Expert in Javascript</p>
-            <p class="name">Gideon Appau</p>
-            <button class="primary-button">Follow Gideon</button>
-          </div>
-        </div>
+        <% } %> <% } %> <% } else { %>
+        <p>Nothing to see</p>
+        <% }%>
       </div>
     </main>
 
     <a href="/courses"><button class="load">Load more meetups</button></a>
     <script src="./script/script.js"></script>
+    <script src="./script/following.js"></script>
   </body>
 </html>
