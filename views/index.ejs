@@ -8,7 +8,7 @@
     <main class="hero">
       <div class="texts">
         <div class="info">
-          Growing <img src="./assets/explore.svg" alt="loader" loading="lazy" />
+          Growing 
           Community
         </div>
         <h1>
@@ -46,10 +46,10 @@
       </div>
       <div class="img-container">
         <% if (tutors !== null) { %> <% for( let i = 0; i<Math.min(tutors.length, 2); i++ ) { const
-        {firstName, lastName, username, _id} = tutors[i]; %> <% if (username &&
+        {firstName, lastName, username, _id, profilePicture} = tutors[i]; %> <% if (username &&
         user && (username===user.username)) { continue; %> <% } else {%>
         <div class="tutor-card" id="_id">
-          <div class="header">
+          <div class="header" style="background: url('<%= profilePicture %>');">
             <div class="overlay">
               <img src="./assets/heart.svg" alt="" class="icon" />
             </div>

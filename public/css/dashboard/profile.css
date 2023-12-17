@@ -1,0 +1,54 @@
+body {
+  margin: 20px;
+}
+
+main {
+  border-right: 1.3px solid rgb(40, 40, 40);
+  border-left: 1.3px solid rgb(40, 40, 40);
+  max-width: 80%;
+  width: 1200px;
+  margin: 0 auto;
+  height: 100vh;
+  background: rgb(28, 28, 28);
+  border-radius: 10px;
+}
+main .topnav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  padding: 15px;
+  margin-bottom: 0;
+}
+main .topnav p {
+  color: #888;
+}
+main .banner {
+  height: 200px;
+}
+main .details {
+  position: relative;
+}
+main .details img {
+  border-radius: 100%;
+  border: 5px solid rgb(28, 28, 28);
+  position: relative;
+  top: -30px;
+  left: 15px;
+}
+main .details .txt {
+  position: absolute;
+  top: 40px;
+  left: 20px;
+}
+main .details .txt p {
+  color: #888;
+}
+main .details .txt p span {
+  color: #582fff;
+}
+main .details button {
+  position: absolute;
+  right: 20px;
+  top: 30px;
+  border: 2px solid rgb(40, 40, 40);
+}/*# sourceMappingURL=profile.css.map */

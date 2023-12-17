@@ -67,11 +67,11 @@ const putOnboarding = (req, res) => {
 
         // Get the first name, middle name, and last name from the request body
         const { firstName, middleName, lastName, username } = req.body;
-
+        const avatar = `https://ui-avatars.com/api/?name=${firstName}+${middleName}+${lastName}&&format=svg&background=random&font-size=0.33&bold=true&color=random&unique=true`;
         // Find the user by ID and update the first name, middle name, and last name
         const result = await User.updateOne(
           { _id: userId },
-          { $set: { firstName, middleName, lastName, username } }
+          { $set: { firstName, middleName, lastName, username, profilePicture: avatar } }
         );
 
         // If the user is not found, send a 404 error

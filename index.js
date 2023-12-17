@@ -57,8 +57,6 @@ app.get("/peers", requireAuth, async (req, res) => {
 app.get("/peers/:username", requireAuth, async (req, res, next) => {
   const username = req.params.username;
   const user = await User.findOne({ username: username }, { password: 0 })
-    .populate("followers")
-    .populate("following");
   res.render("dashboard/profile", { peer:user, title: user.username });
 });
 

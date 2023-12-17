@@ -1,0 +1,56 @@
+@use "../foundations/colors";
+
+body {
+  margin: 20px;
+}
+main {
+  border-right: 1.3px solid rgb(40, 40, 40);
+  border-left: 1.3px solid rgb(40, 40, 40);
+  max-width: 80%;
+  width: 1200px;
+  margin: 0 auto;
+  height: 100vh;
+  background: rgb(28, 28, 28);
+  border-radius: 10px;
+  .topnav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    padding: 15px;
+    margin-bottom: 0;
+    p {
+      color: #888;
+    }
+  }
+  .banner {
+    height: 200px;
+  }
+
+  .details {
+    position: relative;
+    img {
+      border-radius: 100%;
+      border: 5px solid rgb(28, 28, 28);
+      position: relative;
+      top: -30px;
+      left: 15px;
+    }
+    .txt {
+      position: absolute;
+      top: 40px;
+      left: 20px;
+      p {
+        color: #888;
+        span {
+          @include colors.primary-color;
+        }
+      }
+    }
+    button {
+      position: absolute;
+      right: 20px;
+      top: 30px;
+      border: 2px solid rgb(40, 40, 40);
+    }
+  }
+}

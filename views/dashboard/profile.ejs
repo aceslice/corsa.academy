@@ -1,10 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <%- include('../partials/head') %>
-  <link rel="stylesheet" href="/css/dashboard/dashboard.css" />
-</head>
-<body>
-   <%- include('./header') %>
-</body>
+    <link rel="stylesheet" href="/css/dashboard/profile.css" />
+  </head>
+  <body>
+    <% if (peer) { const {firstName, lastName, username, followers, following,
+    organisedEvents, enrolledEvents, profilePicture, _id} = peer; %>
+    <main>
+      <div class="topnav">
+        <h3><%= firstName %> <%= lastName %></h3>
+        <p>
+          Organized <%= organisedEvents.length%> events. Attended <%=
+          enrolledEvents.length%> events
+        </p>
+      </div>
+      <div class="banner" style="background: url('<%= profilePicture%>')"></div>
+      <div class="details">
+        <img src="<%= profilePicture %>" alt="" />
+        <div class="txt">
+          <div class="name">
+            <h3>
+              <%= firstName %> <%= lastName %> <% if
+              (user.followers.includes(_id)) { %>
+              <p class="follows">Follows you</p>
+              <% } %>
+            </h3>
+            <p>@<%= username %></p>
+          </div>
+          <p>
+            <span><%= followers.length%></span> followers
+            <span><%= following.length%></span> following
+          </p>
+        </div>
+
+        <% if (user.following.includes(_id)) { %>
+        <button
+          class="unfollow tertiary-button"
+          data-custom="<%= _id%>"
+          data-user="<%= user._id%>"
+        >
+          Following
+        </button>
+        <% } else if(peer.username === user.username) {%>
+          <button class="secondary-button">Edit Account</button>
+          <% } else {%>
+        <button
+          data-custom="<%= _id%>"
+          data-user="<%= user._id%>"
+          class="primary-button icon"
+        >
+          Follow @<%= username %>
+        </button>
+        <% }%>
+      </div>
+    </main>
+    <% } %>
+  </body>
+  <script src="../script/following.js"></script>
 </html>
