@@ -6,20 +6,25 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 const User = require("./models/userModel");
+const jwt = require("jsonwebtoken");
 dotenv.config();
-
+const { promisify } = require('util');
 const app = express();
 app.set("view engine", "ejs");
 const mongoose = require("mongoose");
 
-mongoose.connect(`${process.env.DB_CONNECTION_STRING}`);
+mongoose.connect(`${process.env.DB_CONNECTION_STRING}`)
+.then((res=>{
+  console.log("Database Connected Succesfully");
+  app.listen(3000, () => {
+    console.log("Server started successfully on port 3000");
+  });
+}))
 
 app.use(express.json());
 app.use(express.static("public"));
 app.use(cookieParser());
-app.listen(3000, () => {
-  console.log("Server started successfully on port 3000");
-});
+
 app.get("*", checkUser);
 app.get("/", async (req, res) => {
   let tutors = await User.find({});
@@ -56,8 +61,25 @@ app.get("/peers", requireAuth, async (req, res) => {
 });
 app.get("/peers/:username", requireAuth, async (req, res, next) => {
   const username = req.params.username;
-  const user = await User.findOne({ username: username }, { password: 0 })
-  res.render("dashboard/profile", { peer:user, title: user.username });
+  const user = await User.findOne({ username: username }, { password: 0 }).populate("following","firstName lastName username").exec()
+  let currentUser = null;
+
+const token = req.cookies.jwt;
+if (token) {
+  try {
+    const decodedToken = await promisify(jwt.verify)(token, process.env.SECRET_KEY);
+    currentUser = await User.findById(decodedToken.id).populate("following","firstName lastName username").exec();
+  } catch (err) {
+    console.log(err);
+  }
+}
+  const profileFollowers = user.following;
+  const currentFollowers = currentUser.following;
+console.log("Current",currentFollowers);
+console.log("Profile",profileFollowers);
+  const commonFollowers = new Set([...profileFollowers, ...currentFollowers]);
+console.log(commonFollowers);
+  res.render("dashboard/profile", { peer: user, title: user.username, commonFollowers });
 });
 
 // Update a user's followers

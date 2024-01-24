@@ -21,10 +21,29 @@
         <div class="txt">
           <div class="name">
             <h3>
-              <%= firstName %> <%= lastName %> <% if
-              (user.followers.includes(_id)) { %>
-              <p class="follows">Follows you</p>
-              <% } %>
+              <%= firstName %> <%= lastName %> <% if (commonFollowers.length ===
+              1) { %>
+              <p class="follows">
+                Followed by <%= commonFollowers[0].firstName %> <%=
+                commonFollowers[0].lastName %>
+              </p>
+              <% } else if (commonFollowers.length === 2) { %>
+              <p class="follows">
+                Followed by <%= commonFollowers[0].firstName %> <%=
+                commonFollowers[0].lastName %> and <%=
+                commonFollowers[1].firstName %> <%= commonFollowers[1].lastName
+                %>
+              </p>
+              <% } else if (commonFollowers.length > 2) { %>
+              <p class="follows">
+                Followed by <%= commonFollowers[0].firstName %> <%=
+                commonFollowers[0].lastName %>, <%= commonFollowers[1].firstName
+                %> <%= commonFollowers[1].lastName %> and <%=
+                commonFollowers.length - 2 %> others
+              </p>
+              <% } else {%>
+                <p class="follows">You have no followers in common</p>
+                <% }%>
             </h3>
             <p>@<%= username %></p>
           </div>
@@ -43,8 +62,8 @@
           Following
         </button>
         <% } else if(peer.username === user.username) {%>
-          <button class="secondary-button">Edit Account</button>
-          <% } else {%>
+        <button class="secondary-button">Edit Account</button>
+        <% } else {%>
         <button
           data-custom="<%= _id%>"
           data-user="<%= user._id%>"
