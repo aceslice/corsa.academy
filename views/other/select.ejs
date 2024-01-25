@@ -1,0 +1,97 @@
+<html lang="en">
+  <%- include('../partials/head') %>
+  <link rel="stylesheet" href="/css/auth/auth.css" />
+
+  <body>
+    <div class="auth-container">
+      <h1>Select your super powers</h1>
+      <p>
+        Choose from a pool of skills and attract amazing like minded peers from
+        all over the internet
+      </p>
+      <form value="login-form">
+        <div class="chips">
+          <div class="tile">
+            <input type="checkbox" name="skills" value="javascript" />
+            <label for="javascript">Javascript</label>
+          </div>
+          <div class="tile">
+            <input type="checkbox" name="skills" value="music" />
+            <label for="music">Music</label>
+          </div>
+          <div class="tile">
+            <input type="checkbox" name="skills" value="python" />
+            <label for="python">Python</label>
+          </div>
+          <div class="tile">
+            <input type="checkbox" name="skills" value="mongodb" />
+            <label for="mongodb">Mongo DB</label>
+          </div>
+
+          <div class="tile">
+            <input type="checkbox" name="skills" value="ai" />
+            <label for="ai">AI</label>
+          </div>
+          <div class="tile">
+            <input type="checkbox" name="skills" value="ml" />
+            <label for="ml">ML</label>
+          </div>
+          <div class="tile">
+            <input type="checkbox" name="skills" value="kalilinux" />
+            <label for="kalilinux">Kali Linux</label>
+          </div>
+          <div class="tile">
+            <input type="checkbox" name="skills" value="uiux" />
+            <label for="uiux">UI & UX</label>
+          </div>
+          <div class="tile">
+            <input type="checkbox" name="skills" value="java" />
+            <label for="java">Java</label>
+          </div>
+          <div class="tile">
+            <input type="checkbox" name="skills" value="php" />
+            <label for="php">PHP</label>
+          </div>
+          <div class="tile">
+            <input type="checkbox" name="skills" value="pm" />
+            <label for="pm">Project M.</label>
+          </div>
+        </div>
+        <button class="primary-button">Continue</button>
+      </form>
+    </div>
+    <script>
+      const checkboxes = document.querySelectorAll("input[type='checkbox']");
+      let checkedValues = [];
+
+      for (let checkbox of checkboxes) {
+        checkbox.addEventListener("click", (e) => {
+          if (e.target.checked) {
+            checkedValues.push(e.target.value);
+            console.log(checkedValues);
+          } else {
+            const index = checkedValues.indexOf(e.target.value);
+            if (index !== -1) {
+              checkedValues.splice(index, 1);
+              console.log(checkedValues);
+            }
+          }
+
+          // If more than 3 checkboxes are checked, disable the rest
+          if (checkedValues.length >= 3) {
+            for (let checkbox of checkboxes) {
+              if (!checkbox.checked) {
+                checkbox.disabled = true;
+              }
+            }
+          } else {
+            // If less than 3 checkboxes are checked, enable all
+            for (let checkbox of checkboxes) {
+              checkbox.disabled = false;
+            }
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

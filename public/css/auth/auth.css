@@ -34,7 +34,8 @@ body {
   color: #fff;
   font-size: 14px;
 }
-.auth-container form input {
+.auth-container form input[type=email],
+.auth-container form input[type=password] {
   margin-bottom: 16px;
   height: 55px;
   background: transparent;
@@ -46,7 +47,8 @@ body {
   color: #fff;
   font-size: 15px;
 }
-.auth-container form input:focus-visible {
+.auth-container form input[type=email]:focus-visible,
+.auth-container form input[type=password]:focus-visible {
   border-color: #582fff;
 }
 .auth-container .actions {
@@ -103,4 +105,51 @@ body {
 .auth-container a {
   color: #582fff;
   font-size: 14px;
+}
+
+.chips {
+  margin-bottom: 32px;
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.chips .tile {
+  height: 45px;
+  width: 110px;
+  position: relative;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: center;
+  cursor: pointer;
+}
+.chips .tile input[type=checkbox] {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 25px;
+}
+.chips .tile input[type=checkbox]:checked {
+  background-color: rgb(40, 40, 40);
+}
+.chips .tile input[type=checkbox]:checked ~ label {
+  color: #fff;
+}
+.chips .tile label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
 }/*# sourceMappingURL=auth.css.map */

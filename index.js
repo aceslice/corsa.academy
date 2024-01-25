@@ -8,18 +8,17 @@ const dotenv = require("dotenv");
 const User = require("./models/userModel");
 const jwt = require("jsonwebtoken");
 dotenv.config();
-const { promisify } = require('util');
+const { promisify } = require("util");
 const app = express();
 app.set("view engine", "ejs");
 const mongoose = require("mongoose");
 
-mongoose.connect(`${process.env.DB_CONNECTION_STRING}`)
-.then((res=>{
+mongoose.connect(`${process.env.DB_CONNECTION_STRING}`).then((res) => {
   console.log("Database Connected Succesfully");
   app.listen(3000, () => {
     console.log("Server started successfully on port 3000");
   });
-}))
+});
 
 app.use(express.json());
 app.use(express.static("public"));
@@ -31,7 +30,7 @@ app.get("/", async (req, res) => {
   res.render("index", {
     title: "Learn from your peers, anytime, anywhere",
     categories,
-    tutors
+    tutors,
   });
 });
 app.use("/courses", course);
@@ -41,12 +40,19 @@ app.get("/about", (req, res) => {
 app.get("/comingsoon", (req, res) => {
   res.render("comingsoon", { title: "Join the waitlist" });
 });
+app.get("/select", (req, res) => {
+  res.render("other/select", { title: "Choose your super powers" });
+});
 app.use(authRoutes);
 app.get("/app", requireAuth, async (req, res) => {
   try {
     const peers = await User.find({}, { password: 0, email: 0 });
 
-    res.render("dashboard/dashboard", { title: "Dashboard", peers, user: res.locals.user });
+    res.render("dashboard/dashboard", {
+      title: "Dashboard",
+      peers,
+      user: res.locals.user,
+    });
   } catch (error) {
     console.log(error);
   }
@@ -61,29 +67,40 @@ app.get("/peers", requireAuth, async (req, res) => {
 });
 app.get("/peers/:username", requireAuth, async (req, res, next) => {
   const username = req.params.username;
-  const user = await User.findOne({ username: username }, { password: 0 }).populate("following","firstName lastName username").exec()
+  const user = await User.findOne({ username: username }, { password: 0 })
+    .populate("following", "firstName lastName username")
+    .exec();
   let currentUser = null;
 
-const token = req.cookies.jwt;
-if (token) {
-  try {
-    const decodedToken = await promisify(jwt.verify)(token, process.env.SECRET_KEY);
-    currentUser = await User.findById(decodedToken.id).populate("following","firstName lastName username").exec();
-  } catch (err) {
-    console.log(err);
+  const token = req.cookies.jwt;
+  if (token) {
+    try {
+      const decodedToken = await promisify(jwt.verify)(
+        token,
+        process.env.SECRET_KEY
+      );
+      currentUser = await User.findById(decodedToken.id)
+        .populate("following", "firstName lastName username")
+        .exec();
+    } catch (err) {
+      console.log(err);
+    }
   }
-}
   const profileFollowers = user.following;
   const currentFollowers = currentUser.following;
-console.log("Current",currentFollowers);
-console.log("Profile",profileFollowers);
+  console.log("Current", currentFollowers);
+  console.log("Profile", profileFollowers);
   const commonFollowers = new Set([...profileFollowers, ...currentFollowers]);
-console.log(commonFollowers);
-  res.render("dashboard/profile", { peer: user, title: user.username, commonFollowers });
+  console.log(commonFollowers);
+  res.render("dashboard/profile", {
+    peer: user,
+    title: user.username,
+    commonFollowers,
+  });
 });
 
 // Update a user's followers
-app.put("/peers/:id/follow", requireAuth,async (req, res) => {
+app.put("/peers/:id/follow", requireAuth, async (req, res) => {
   try {
     // Get the ID of the user to update
     const userId = req.params.id;
@@ -113,7 +130,7 @@ app.put("/peers/:id/follow", requireAuth,async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
-app.put("/peers/:id/unfollow", requireAuth ,async (req, res) => {
+app.put("/peers/:id/unfollow", requireAuth, async (req, res) => {
   try {
     const userId = req.params.id;
     const followerId = req.body.followerId;
