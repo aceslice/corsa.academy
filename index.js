@@ -12,12 +12,14 @@ const { promisify } = require("util");
 const app = express();
 app.set("view engine", "ejs");
 const mongoose = require("mongoose");
+const cors = require("cors");
+app.use(cors());
 
 const port = process.env.port || 5000;
 mongoose.connect(`${process.env.DB_CONNECTION_STRING}`).then((res) => {
   console.log("Database Connected Succesfully");
   app.listen(port, () => {
-    console.log("Server started successfully on port 3000");
+    console.log(`Server started successfully on port ${port}`);
   });
 });
 
