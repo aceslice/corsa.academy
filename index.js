@@ -13,9 +13,10 @@ const app = express();
 app.set("view engine", "ejs");
 const mongoose = require("mongoose");
 
+const port = process.env.port || 3000;
 mongoose.connect(`${process.env.DB_CONNECTION_STRING}`).then((res) => {
   console.log("Database Connected Succesfully");
-  app.listen(3000, () => {
+  app.listen(port, () => {
     console.log("Server started successfully on port 3000");
   });
 });
