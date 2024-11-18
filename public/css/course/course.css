@@ -7,7 +7,7 @@
   /* Create an active/current tablink class */
 }
 .courses .tab {
-  overflow: hidden;
+  overflow-x: scroll;
   background-color: rgb(28, 28, 28);
   padding: 10px;
   border-radius: 20px;
@@ -128,7 +128,7 @@
   flex-direction: row;
 }
 .courses .container .card .details .actions button {
-  padding: 15px 40px;
+  padding: 1rem 40px;
   border-radius: 8px;
   font-weight: bold;
   font-size: 12px;

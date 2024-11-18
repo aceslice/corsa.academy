@@ -8,19 +8,20 @@
     <div class="auth-container">
       <h1>Almost there</h1>
       <p>
-        Your name is a small part of the bigger picture. Share your name with us
+        Your name is a small part of a bigger picture. Share your name with us
         so we can get to know you better.
       </p>
       <form name="onboarding" id="onboarding">
         <label for="name">Your name</label>
-        <input type="text" name="name" placeholder="Enter your name" required />
-
-        <label for="username">Username (Optional)</label>
         <input
           type="text"
-          name="username"
-          placeholder="Add your username (optional)"
+          name="name"
+          placeholder="eg. Kwame Nkrumah"
+          required
         />
+
+        <label for="username">Username (Optional)</label>
+        <input type="text" name="username" placeholder="eg. kwame_nkrumah" />
       </form>
 
       <div class="actions">
@@ -60,8 +61,7 @@
       };
       console.log(body);
       try {
-        const res = await fetch("/onboarding",
-        {
+        const res = await fetch("/onboarding", {
           method: "PUT",
           body: JSON.stringify(body),
           headers: {

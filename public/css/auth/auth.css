@@ -35,7 +35,7 @@ body {
   font-size: 14px;
 }
 .auth-container form input[type=email],
-.auth-container form input[type=password] {
+.auth-container form input[type=password], .auth-container form input[type=text], .auth-container form input[type=number] {
   margin-bottom: 16px;
   height: 55px;
   background: transparent;
@@ -48,7 +48,7 @@ body {
   font-size: 15px;
 }
 .auth-container form input[type=email]:focus-visible,
-.auth-container form input[type=password]:focus-visible {
+.auth-container form input[type=password]:focus-visible, .auth-container form input[type=text]:focus-visible, .auth-container form input[type=number]:focus-visible {
   border-color: #582fff;
 }
 .auth-container .actions {

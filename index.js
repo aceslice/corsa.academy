@@ -43,7 +43,7 @@ app.get("/about", (req, res) => {
 app.get("/comingsoon", (req, res) => {
   res.render("comingsoon", { title: "Join the waitlist" });
 });
-app.get("/select", (req, res) => {
+app.get("/select", requireAuth, (req, res) => {
   res.render("other/select", { title: "Choose your super powers" });
 });
 app.use(authRoutes);

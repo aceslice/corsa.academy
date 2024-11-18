@@ -49,7 +49,7 @@ a {
   color: #888;
   text-align: center;
   padding: 8px;
-  font-size: 15px;
+  font-size: 1rem;
   color: #fff;
   @include flex.flex(center, center);
   position: relative;
@@ -62,21 +62,19 @@ a {
 }
 .topnav {
   @include flex.flex(center, space-between);
-  padding: 15px 40px;
+  padding: 1rem 40px;
   border-bottom: 1px solid rgb(40, 40, 40);
   background: transparent;
   margin-bottom: 20px;
   .logo {
     height: 35px;
-    background-color: #eee;
-    border-radius: 100%;
   }
   .links {
-    font-size: 15px;
+    font-size: 1rem;
     a {
       text-decoration: none;
       color: #bbb;
-      margin: 16px;
+      margin: 1rem;
       &:hover {
         color: $primary-color;
       }
@@ -140,8 +138,7 @@ a {
 }
 .hero {
   padding: 40px 80px;
-  @include flex.flex(center, space-evenly);
-
+  @include flex.flex(center, center);
   height: 100%;
   .texts {
     .info {
@@ -150,7 +147,7 @@ a {
       border: 1px solid #7d808429;
       border-radius: 40px;
       gap: 6px;
-      padding: 4px 16px;
+      padding: 4px 1rem;
       font-size: 10px;
       font-weight: 600;
       letter-spacing: 1.6px;
@@ -179,7 +176,7 @@ a {
             height: 35px;
             width: 35px;
             background-color: #fff;
-            margin-right: -15px;
+            margin-right: -1rem;
             border-radius: 100%;
             overflow: hidden;
             background-position: center;
@@ -209,16 +206,16 @@ a {
     }
     p {
       max-width: 500px;
-      margin-bottom: 32px;
+      margin-bottom: 2rem;
       color: #888;
       line-height: 1.5em;
       text-align: left;
       font-weight: 400;
-      font-size: 16px;
+      font-size: 1rem;
     }
     .buttons {
       @include flex.flex(center, left);
-      gap: 16px;
+      gap: 1rem;
     }
   }
   .img-container {
@@ -228,25 +225,22 @@ a {
     height: 500px;
     @include flex.flex(center, center);
     flex-wrap: wrap;
-    gap: 15px;
-    background-image: url(../assets/img/bg-blur-ke-cropped.66495e1ca0cf8625ba79.png);
-    background-position: center;
-    background-size: 100%;
+    gap: 1rem;
   }
 }
 .load {
   @include button.tertiary;
   display: block;
   margin: 0 auto;
-  margin-bottom: 32px;
+  margin-bottom: 2rem;
 }
 .tutor-card {
   background-color: #7d808429;
   width: 298px;
   position: relative;
-  border-radius: 16px;
+  border-radius: 1rem;
   overflow: hidden;
-  margin-bottom: 32px;
+  margin-bottom: 2rem;
   margin-left: -48px;
   transform: rotate(-4deg);
   box-shadow: 10px 10px 100px rgb(22, 22, 22, 0.3);
@@ -268,8 +262,8 @@ a {
       height: 100%;
       .icon {
         position: absolute;
-        top: 16px;
-        right: 16px;
+        top: 1rem;
+        right: 1rem;
         z-index: 100;
         cursor: pointer;
         &:hover {
@@ -279,7 +273,7 @@ a {
     }
   }
   .details {
-    padding: 16px;
+    padding: 1rem;
     word-break: break-word;
     color: #888;
     position: relative;
@@ -292,12 +286,12 @@ a {
       top: -30px;
     }
     .expertise {
-      margin-top: 16px;
+      margin-top: 1rem;
       font-size: 14px;
       margin-bottom: 8px;
     }
     .name {
-      font-size: 16px;
+      font-size: 1rem;
       color: #eee;
       margin-bottom: 10px;
       word-break: break-word;

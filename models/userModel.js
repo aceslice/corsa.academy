@@ -27,12 +27,8 @@ const userSchema = new mongoose.Schema({
   username: {
     type: String,
     unique: true,
-    default: function () {
-      if (this.email) {
-        return this.email;
-      }
-      return null;
-    },
+    default: this.email,
+  
   },
   profilePicture: {
     type: String,

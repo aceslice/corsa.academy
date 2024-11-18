@@ -1,7 +1,7 @@
 @use "./flex";
 $primary-color: #582fff;
 @mixin button($background, $color, $border: 1.5px solid $primary-color) {
-  padding: 15px 40px;
+  padding: 1rem 40px;
   border-radius: 8px;
   font-weight: bold;
   font-size: 12px;
@@ -15,10 +15,10 @@ $primary-color: #582fff;
   svg {
     width: 18px;
     flex-shrink: 0;
-    padding:0;
-   }
+    padding: 0;
+  }
   &:hover {
-    opacity: .8;
+    opacity: 0.8;
   }
 }
 @mixin secondary {
@@ -34,8 +34,8 @@ $primary-color: #582fff;
   @include button($primary-color, rgb(255, 255, 255));
 }
 @mixin tertiary {
-  @include button(rgb(28, 28, 28), $primary-color, none);
+  @include button(rgba(28, 28, 28, 0.535), $primary-color, none);
 }
-@mixin link{
+@mixin link {
   @include button(transparent, #eee, none);
 }

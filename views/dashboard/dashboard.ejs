@@ -43,9 +43,9 @@
       <div class="peers">
         <h1>Peers you may know</h1>
 
-        <% if (peers.length> 0) { %> <% for( let i=0; i<Math.min(peers.length, 5); i++ ) { const
+        <% if (peers.length > 0) { %> <% for( let i=0; i<Math.min(peers.length, 5); i++ ) { const
         {firstName, lastName, middleName, username, followers, following,
-        _id, profilePicture}=peers[i]; %> <% if (username===user.username) { continue; %> <% }
+        _id, profilePicture}=peers[i]; %> <% if (username === user.username) { continue; %> <% }
         else {%>
         <div class="card" id="<%= _id %>">
           <img
@@ -76,7 +76,7 @@
         </div>
         <% }%> <% } %> <% } else{ %>
         <h1>Looks like you are the only one here</h1>
-        <% }%>
+        <% } %>
       </div>
     </div>
     <div class="overlay">

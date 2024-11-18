@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head') %>
+  <link rel="stylesheet" href="/css/auth/auth.css" />
+
+  <body>
+    <div class="auth-container">
+      <!-- <div
+        class="logo-container"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 2rem;
+          gap: 0.5rem;
+        "
+      >
+        <img src="/assets/img/Grouplogo.png" alt="" height="24" />
+        <h1 style="font-size: 1rem; margin: 0">The Classroom Experts</h1>
+      </div> -->
+      <h1>Enter Your Code</h1>
+      <p>
+        Enter the 6 digit code we sent to your email
+        <span style="color: #582fff">gideonad.codez@gmail.com</span>
+      </p>
+      <form name="otp" id="otp">
+        <div
+          class="form"
+          style="display: flex; gap: 0.5rem; text-align: center"
+        >
+          <input
+            type="text"
+            name=""
+            style="
+              height: 5rem;
+              text-align: center;
+              font-size: 2rem;
+              font-weight: 800;
+              padding: 0;
+            "
+            maxlength="1"
+            minlength="1"
+            required
+          /><input
+            type="text"
+            name=""
+            style="
+              height: 5rem;
+              text-align: center;
+              font-size: 2rem;
+              font-weight: 800;
+              padding: 0;
+            "
+            maxlength="1"
+            minlength="1"
+            required
+          /><input
+            type="text"
+            name=""
+            style="
+              height: 5rem;
+              text-align: center;
+              font-size: 2rem;
+              font-weight: 800;
+              padding: 0;
+            "
+            maxlength="1"
+            minlength="1"
+            required
+          /><input
+            type="text"
+            name=""
+            style="
+              height: 5rem;
+              text-align: center;
+              font-size: 2rem;
+              font-weight: 800;
+              padding: 0;
+            "
+            maxlength="1"
+            minlength="1"
+            required
+          /><input
+            type="text"
+            name=""
+            style="
+              height: 5rem;
+              text-align: center;
+              font-size: 2rem;
+              font-weight: 800;
+              padding: 0;
+            "
+            maxlength="1"
+            minlength="1"
+            required
+          /><input
+            type="text"
+            name=""
+            style="
+              height: 5rem;
+              text-align: center;
+              font-size: 2rem;
+              font-weight: 800;
+              padding: 0;
+            "
+            maxlength="1"
+            minlength="1"
+            required
+          />
+        </div>
+        <a href="#" style="text-align: end; margin-bottom: 1rem"
+          >Click here to resend</a
+        >
+        <button class="primary-button">Verify Code</button>
+      </form>
+    </div>
+    <script>
+      const otp = document.getElementById("otp");
+
+      // Add a submit event listener to the login form
+
+      // Add a submit event listener to the signup form
+      const digits = document.querySelectorAll("input[type='text']");
+      console.log(digits);
+
+      digits.forEach((digit) => {
+        digit.addEventListener("focus", () => {
+          digits.forEach((digit) => {
+            digit.style.backgroundColor = "transparent";
+            digit.style.borderColor = "rgb(40, 40, 40)";
+            digit.style.color = "#fff";
+          });
+        });
+      });
+      if (otp) {
+        otp.addEventListener("submit", (e) => {
+          e.preventDefault();
+          let code = "";
+
+          digits.forEach((digit) => {
+            code += digit.value;
+          });
+          if (code.length === 6 && code === "123456".toLowerCase()) {
+            console.log("Correcct code");
+            digits.forEach((digit) => {
+              digit.style.backgroundColor = "#3cb37110";
+              digit.style.borderColor = "#3cb37170";
+              digit.style.color = "#3cb371";
+            });
+            location.assign("/onboarding");
+          } else {
+            console.log("Incorrect code");
+            digits.forEach((digit) => {
+              digit.style.backgroundColor = "#ff1b6b10";
+              digit.style.borderColor = "#ff1b6b70";
+              digit.style.color = "#ff1b6b";
+            });
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -6,8 +6,8 @@
     <div class="auth-container">
       <h1>Select your super powers</h1>
       <p>
-        Choose from a pool of skills and attract amazing like minded peers from
-        all over the internet
+        Choose from a pool of interests and attract amazing like minded peers
+        and to help us tailor tools to your needs.
       </p>
       <form value="login-form">
         <div class="chips">
@@ -77,8 +77,8 @@
             }
           }
 
-          // If more than 3 checkboxes are checked, disable the rest
-          if (checkedValues.length >= 3) {
+          // If more than 5 checkboxes are checked, disable the rest
+          if (checkedValues.length >= 5) {
             for (let checkbox of checkboxes) {
               if (!checkbox.checked) {
                 checkbox.disabled = true;

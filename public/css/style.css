@@ -22,7 +22,7 @@ body {
 }
 
 .primary-button {
-  padding: 15px 40px;
+  padding: 1rem 40px;
   border-radius: 8px;
   font-weight: bold;
   font-size: 12px;
@@ -47,7 +47,7 @@ body {
 }
 
 .secondary-button {
-  padding: 15px 40px;
+  padding: 1rem 40px;
   border-radius: 8px;
   font-weight: bold;
   font-size: 12px;
@@ -78,13 +78,13 @@ body {
 }
 
 .tertiary-button {
-  padding: 15px 40px;
+  padding: 1rem 40px;
   border-radius: 8px;
   font-weight: bold;
   font-size: 12px;
   cursor: pointer;
   border: none;
-  background-color: rgb(28, 28, 28);
+  background-color: rgba(28, 28, 28, 0.535);
   color: #582fff;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
   display: flex;
@@ -103,7 +103,7 @@ body {
 }
 
 .link-button {
-  padding: 15px 40px;
+  padding: 1rem 40px;
   border-radius: 8px;
   font-weight: bold;
   font-size: 12px;
@@ -138,7 +138,7 @@ a {
   color: #888;
   text-align: center;
   padding: 8px;
-  font-size: 15px;
+  font-size: 1rem;
   color: #fff;
   display: flex;
   align-items: center;
@@ -158,23 +158,21 @@ a {
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
-  padding: 15px 40px;
+  padding: 1rem 40px;
   border-bottom: 1px solid rgb(40, 40, 40);
   background: transparent;
   margin-bottom: 20px;
 }
 .topnav .logo {
   height: 35px;
-  background-color: #eee;
-  border-radius: 100%;
 }
 .topnav .links {
-  font-size: 15px;
+  font-size: 1rem;
 }
 .topnav .links a {
   text-decoration: none;
   color: #bbb;
-  margin: 16px;
+  margin: 1rem;
 }
 .topnav .links a:hover {
   color: #582fff;
@@ -245,7 +243,7 @@ a {
   padding: 40px 80px;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-direction: row;
   height: 100%;
 }
@@ -258,7 +256,7 @@ a {
   border: 1px solid rgba(125, 128, 132, 0.1607843137);
   border-radius: 40px;
   gap: 6px;
-  padding: 4px 16px;
+  padding: 4px 1rem;
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 1.6px;
@@ -293,7 +291,7 @@ a {
   height: 35px;
   width: 35px;
   background-color: #fff;
-  margin-right: -15px;
+  margin-right: -1rem;
   border-radius: 100%;
   overflow: hidden;
   background-position: center;
@@ -320,19 +318,19 @@ a {
 }
 .hero .texts p {
   max-width: 500px;
-  margin-bottom: 32px;
+  margin-bottom: 2rem;
   color: #888;
   line-height: 1.5em;
   text-align: left;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
 }
 .hero .texts .buttons {
   display: flex;
   align-items: center;
   justify-content: left;
   flex-direction: row;
-  gap: 16px;
+  gap: 1rem;
 }
 .hero .img-container {
   flex: 2;
@@ -343,20 +341,17 @@ a {
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 15px;
-  background-image: url(../assets/img/bg-blur-ke-cropped.66495e1ca0cf8625ba79.png);
-  background-position: center;
-  background-size: 100%;
+  gap: 1rem;
 }
 
 .load {
-  padding: 15px 40px;
+  padding: 1rem 40px;
   border-radius: 8px;
   font-weight: bold;
   font-size: 12px;
   cursor: pointer;
   border: none;
-  background-color: rgb(28, 28, 28);
+  background-color: rgba(28, 28, 28, 0.535);
   color: #582fff;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
   display: flex;
@@ -366,7 +361,7 @@ a {
   gap: 4px;
   display: block;
   margin: 0 auto;
-  margin-bottom: 32px;
+  margin-bottom: 2rem;
 }
 .load svg {
   width: 18px;
@@ -381,9 +376,9 @@ a {
   background-color: rgba(125, 128, 132, 0.1607843137);
   width: 298px;
   position: relative;
-  border-radius: 16px;
+  border-radius: 1rem;
   overflow: hidden;
-  margin-bottom: 32px;
+  margin-bottom: 2rem;
   margin-left: -48px;
   transform: rotate(-4deg);
   box-shadow: 10px 10px 100px rgba(22, 22, 22, 0.3);
@@ -408,8 +403,8 @@ a {
 }
 .tutor-card .header .overlay .icon {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 1rem;
+  right: 1rem;
   z-index: 100;
   cursor: pointer;
 }
@@ -417,7 +412,7 @@ a {
   transform: scale(1.02);
 }
 .tutor-card .details {
-  padding: 16px;
+  padding: 1rem;
   word-break: break-word;
   color: #888;
   position: relative;
@@ -431,12 +426,12 @@ a {
   top: -30px;
 }
 .tutor-card .details .expertise {
-  margin-top: 16px;
+  margin-top: 1rem;
   font-size: 14px;
   margin-bottom: 8px;
 }
 .tutor-card .details .name {
-  font-size: 16px;
+  font-size: 1rem;
   color: #eee;
   margin-bottom: 10px;
   word-break: break-word;

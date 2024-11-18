@@ -48,14 +48,14 @@ const postSignup = async (req, res) => {
   }
 };
 const getAuthentication = (req, res) => {
-  res.render("auth/auth", { title: "Welcome to Corsa Academy" });
+  res.render("auth/auth", { title: "Welcome to Classroom Experts" });
 };
 const logOut = (req, res) => {
   res.cookie("jwt", "", { maxAge: 1 });
   res.redirect("/auth");
 };
 const onboarding = (req, res) => {
-  res.render("auth/onboarding", { title: "Welcome to Corsa Academy" });
+  res.render("auth/onboarding", { title: "Welcome to Classroom Experts" });
 };
 const putOnboarding = (req, res) => {
   const token = req.cookies.jwt;
@@ -90,6 +90,10 @@ const putOnboarding = (req, res) => {
     res.redirect("/auth");
   }
 };
+const getOTP = (req, res) =>{
+    res.render("auth/otp", { title: "Verify your email" });
+
+}
 module.exports = {
   getLoginPage,
   getSignupPage,
@@ -99,4 +103,5 @@ module.exports = {
   logOut,
   onboarding,
   putOnboarding,
+  getOTP
 };
